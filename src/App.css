@@ -24,6 +24,11 @@
   color: white;
 }
 
+.imageSurvey{
+  height: 70%;
+  width: 20%;
+}
+
 .App-link {
   color: #61dafb;
 }

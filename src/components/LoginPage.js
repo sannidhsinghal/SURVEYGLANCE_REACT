@@ -2,15 +2,17 @@ import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
-import {getResultantData} from './GetResultantData';
 import {FaSignInAlt } from 'react-icons/fa';
+import { dataPost } from "./GetData";
+import {Redirect} from 'react-router-dom'
+
 
 
 
 export class LoginPage extends Component {
     
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
      this.state={
        username:"",
        password:"",
@@ -20,23 +22,6 @@ export class LoginPage extends Component {
        data:[],
        error:""
      }
-     this.Login=this.Login.bind(this)
-  }
-
-  componentDidMount(){
-    console.log(this.props)
-    console.log(this.context)
-    getResultantData()
-    .then(response=>{
-        this.setState({
-            users:response
-           
-        })})
-       .catch(function(error){
-       console.log(error)
-    })
-
-     
   }
 
 
@@ -52,54 +37,47 @@ handlePassword = event =>{
 
   handleSubmit = event =>{
     event.preventDefault();
-    this.setState({
-        error:""
-      })
-    console.log(this.state.username)
-    
-    let response = this.Login(this.state.username)
-    if(response.length===0){
-      this.setState({
-        error:"Email is not registered"
-      })
-    }
-    else if(this.state.password==="12345"){
-      localStorage.setItem('isLogged',true)
-       localStorage.setItem('username',response[0].username)
-       this.setState({
-        isLogged:true
-      })
-      this.props.history.goBack()
-    }else{
-      this.setState({
-        error:"Incorrect password"
-      })
-    }
+    const user ={
+      username:this.state.username,
+      password:this.state.password
+    };
+    let res ={};
+    dataPost('/user/login',user)
+    .then(response=>{
+      if(response.hasOwnProperty('userName')){
+        this.setState({
+          isLogged:true
+        })
+        localStorage.setItem('userId',response.id)
+        localStorage.setItem('isLogged',true)
+      }
+    })
+  }
+  
    
 
    
-  }  
-  
-  Login(email){
-    return this.state.users.filter(user=>user.email===email)
-  }
-  
-  
+    
   
   render() {
+
+  if(this.state.isLogged){
+    return(
+      <Redirect to ='/home'></Redirect>
+    )
+  }
+
+
+
         return (
             <div className="loginParent">
-            
             <div className="col-sm-4">
-      
-            <Card style={{ display:'flex', justifyContent:'center' }}
->
+            <Card style={{ display:'flex', justifyContent:'center' }}>
                      <Card.Body className="p-4">  
                     <Form  onSubmit ={this.handleSubmit}>
                         <div className="">
                          </div>
                           <h3 className="text-center mb-3">LOGIN</h3>
-
                             <div className ="fields">
                               <p className="text-danger">{this.state.error}</p>
                                <Form.Control  type = "email " placeholder = "Email" onChange= {this.handleChange}/>
@@ -112,7 +90,6 @@ handlePassword = event =>{
                     </Card.Body>
                     </Card>            
                     </div>
-                    
                     </div>
         )
      

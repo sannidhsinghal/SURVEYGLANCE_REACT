@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import { FaMusic } from "react-icons/fa";
 import Figure from "react-bootstrap/Figure";
-import MapComponent from "./MapComponent";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -102,10 +101,6 @@ class User extends Component {
           <div class="col-sm-6 pl-md-1 mb-2">
             <Card className=" p-2 heightfull">
               <div className="mapParent">
-                <MapComponent
-                  lat={this.props.location.state.user.address.geo.lat}
-                  lng={this.props.location.state.user.address.geo.lng}
-                />
               </div>
             </Card>
           </div>

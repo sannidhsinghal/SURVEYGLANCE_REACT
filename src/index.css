@@ -101,3 +101,8 @@ table.table th{
 .user-data a{
 	color: #bf8300 !important;
 }
+
+.imageSurvey{
+  height: 70%;
+  width: 20%;
+}
