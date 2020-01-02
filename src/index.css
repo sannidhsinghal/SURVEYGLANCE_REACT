@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.menubar a{color:#fff!important; padding:15px!important;line-height: 20px;}
+.menubar a.loginBtn{padding: 15px 30px!important;font-weight:bold;background:#bf8300;}
+.menubar a.profileBtn{padding: 15px 30px!important;font-weight:bold;background:#cea753;}
+.loginParent{
+	background:linear-gradient(-135deg,#643c67,#6d531b);
+	    height: calc(100vh);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-group-text{
+	background:#bf8300!important;
+	   color:#fff!important;
+	   border-color:#bf8300!important;
+}
+.btn-login_btn{
+	background:#bf8300!important;
+	   color:#fff!important;
+}
+.full-width{width:100%}
+.mapParent{position:relative;height:100%;min-height:250px;}
+.heightfull{height:100%;}
+table.table th, table.table td{
+	padding:.75rem;
+}
+table.table th{
+	font-weight:bold;
+}
+.album_ui{margin-top:10px;border-top:2px solid #ddd;padding:15px 0; display:flex;}
+.album_part{
+	flex:1;border:1px solid #ddd;padding:5px;
+}
+.album_part figure{
+	position:relative;
+	width:100%;
+	display:flex;align-items:center;
+}
+.album_part figure .figure-caption{
+	font-size:15px;
+	margin-left:20px;
+}
+
+@media screen and (max-width: 767px) {
+    .fixed-top{position:static;}
+	.album_ui{display:block;}
+  }
+.btn-defaul {
+    background-color:#bf8300 !important;
+	font-size: 10px;
+    font-weight: 00;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 15px;
+    border: 2px solid rgba(0,0,0,0.15);
+    border-radius: 23px;
+    padding: 1em 3em 1em;
+    width: 29%;
+    height: 43px; 
+    transition: all 0.3s ease 0s;
+}
+
+.btn-close {
+    background-color:red !important;
+	font-size: 10px;
+    font-weight: 00;
+    color: white;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 15px;
+    border: 2px solid rgba(0,0,0,0.15);
+    border-radius: 23px;
+    padding: 1em 3em 1em;
+    width: 29%;
+    height: 43px;
+   
+}
+
+.modalboxofbutton {
+	display: flex;
+	justify-content: space-between;
+  }
+
+  .btn-defaul a{
+	color:#fff!important;
+}
+
+.user-data a{
+	color: #bf8300 !important;
+}
