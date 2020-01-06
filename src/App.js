@@ -8,6 +8,9 @@ import LogoutPage from "./components/LogoutPage";
 import User from "./components/User";
 import Dashboard from "./components/Dashboard";
 import { FaPowerOff, FaSignInAlt, FaUser } from "react-icons/fa";
+import { ResponseTable } from "./components/ResponseTable";
+import ReactTable from "react-table";  
+
 
 class App extends Component {
   constructor() {
@@ -78,6 +81,7 @@ class App extends Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/logout" component={LogoutPage} />
           <Route exact path="/user" component={User} />
+          <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path="/" component={LoginPage} />
         </div>
       </Router>

@@ -59,7 +59,7 @@ class Dashboard extends Component{
     }
 
     handleMonth(){
-        dataGet("/facade/report/count?format=month&userId="+localStorage.getItem("userId"))
+        dataGet("/report/count?format=month&userId="+localStorage.getItem("userId"))
         .then(response=>{
             this.setState(
                 {
@@ -71,13 +71,15 @@ class Dashboard extends Component{
     }
     
     handleResponses(){
-        dataGet("/facade/report/surveyResponse?userId="+localStorage.getItem("userId"))
+        dataGet("/report/count/userId?userId="+localStorage.getItem("userId"))
         .then(response=>{
+            console.log(response)
             this.setState(
                 {
-                    responses:response.responseCount
+                    responses:response
                 }
             )
+            console.log(this.state.responses)
             console.log(response.data)
         })
     }
@@ -87,7 +89,7 @@ class Dashboard extends Component{
         var dates = Object.keys(this.state.dates)
         var values = Object.values(this.state.dates)
 
-        var responseDate = Object.keys(this.state.responses)
+        var responseSurvey = Object.keys(this.state.responses)
         var responseValue = Object.values(this.state.responses)
 
         var chartData={
@@ -107,7 +109,7 @@ class Dashboard extends Component{
             var responseChartData={
                 options: {
                     xaxis: {
-                      categories: responseDate
+                      categories: responseSurvey
                     }
                   },
                   series: [
