@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "597d312d49af1fac618211200fea6929",
+    "revision": "99699853c80d1ad5e24a4717b25e8ef7",
     "url": "/SURVEYGLANCE_REACT/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SURVEYGLANCE_REACT/static/css/2.d83ce507.chunk.css"
   },
   {
-    "revision": "c7f04a468a9aa1399672",
+    "revision": "524fa5c63967590614a4",
     "url": "/SURVEYGLANCE_REACT/static/css/main.66db8dcb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SURVEYGLANCE_REACT/static/js/2.9052026e.chunk.js.LICENSE"
   },
   {
-    "revision": "c7f04a468a9aa1399672",
-    "url": "/SURVEYGLANCE_REACT/static/js/main.b1558ccf.chunk.js"
+    "revision": "524fa5c63967590614a4",
+    "url": "/SURVEYGLANCE_REACT/static/js/main.da4b7dde.chunk.js"
   },
   {
     "revision": "c74fa89d1cc8d5447de6",
