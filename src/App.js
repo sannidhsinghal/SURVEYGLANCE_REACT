@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./css/navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/Home";
@@ -50,7 +50,7 @@ class App extends Component {
     }
 
     return (
-      <HashRouter basename="/">
+      <Router basename="/">
       >
         <div>
           <Navbar
@@ -83,7 +83,7 @@ class App extends Component {
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path="/" component={LoginPage} />
         </div>
-      </HashRouter>
+      </Router>
     );
   }
 }

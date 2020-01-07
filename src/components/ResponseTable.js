@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { dataPost } from "./GetData";
+import { dataGet } from "./GetData";
 import Table from 'react-bootstrap/Table'
 
 
@@ -10,6 +10,7 @@ export class ResponseTable extends Component{
         this.state={
             responses:[]
         }
+        this.printData=this.printData.bind(this)
     }
 
     
@@ -17,16 +18,25 @@ export class ResponseTable extends Component{
 
 
     componentDidMount(){
-    dataPost('/response/survey/1')
+    dataGet('/response/survey/1')
     .then(res =>{
         this.setState({
             responses:res
         })
     })
+    console.log(this.state.responses)
+    }
+
+    printData(){
+      {this.state.responses.forEach(response =>{
+        console.log(response.id)
+      })}
     }
 
     render(){
-              
+      console.log(this.state.responses)
+      console.log(this.state.responses[0])
+      // this.printData()
           return (
             <div>
                 <Table>
@@ -34,7 +44,11 @@ export class ResponseTable extends Component{
                   <tr>
                   <th>S.No</th>
                   <th>Username</th>
-                  <td></td>
+                  {this.state.responses.forEach(response =>{
+                    return(
+                      <tr>{response.id}</tr>
+                    )
+                  })}
                   </tr>
                 </thead>
                 </Table>                
