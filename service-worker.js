@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SURVEYGLANCE_REACT/precache-manifest.9193ca7686b7de568dd4080d32adfe49.js"
+  "/SURVEYGLANCE_REACT/precache-manifest.5d29085ca4412d8583cba978a2c6dabd.js"
 );
 
 self.addEventListener('message', (event) => {
