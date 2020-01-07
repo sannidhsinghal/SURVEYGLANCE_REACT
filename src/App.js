@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import "./css/navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/Home";
@@ -9,7 +9,6 @@ import User from "./components/User";
 import Dashboard from "./components/Dashboard";
 import { FaPowerOff, FaSignInAlt, FaUser } from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
-import ReactTable from "react-table";  
 
 
 class App extends Component {
@@ -51,7 +50,7 @@ class App extends Component {
     }
 
     return (
-      <Router>
+      <HashRouter basename="/">
       >
         <div>
           <Navbar
@@ -84,7 +83,7 @@ class App extends Component {
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path="/" component={LoginPage} />
         </div>
-      </Router>
+      </HashRouter>
     );
   }
 }
