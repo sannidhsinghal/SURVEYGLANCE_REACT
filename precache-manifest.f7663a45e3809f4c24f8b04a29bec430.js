@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1924c128a14e32660262f2188c89405d",
+    "revision": "a4023c3f22c99ab60fe550c5bc084067",
     "url": "/SURVEYGLANCE_REACT/index.html"
   },
   {
-    "revision": "0c8baeb1879df48c9b4e",
+    "revision": "1a1ef5301b22d862c8fa",
     "url": "/SURVEYGLANCE_REACT/static/css/2.d83ce507.chunk.css"
   },
   {
-    "revision": "ca5fd831ee1b37135e78",
+    "revision": "71c6d30975d1bc473d84",
     "url": "/SURVEYGLANCE_REACT/static/css/main.66db8dcb.chunk.css"
   },
   {
-    "revision": "0c8baeb1879df48c9b4e",
-    "url": "/SURVEYGLANCE_REACT/static/js/2.3a625144.chunk.js"
+    "revision": "1a1ef5301b22d862c8fa",
+    "url": "/SURVEYGLANCE_REACT/static/js/2.0ac5ebed.chunk.js"
   },
   {
     "revision": "89ddea58e0f777cd8939e1c9aad0a102",
-    "url": "/SURVEYGLANCE_REACT/static/js/2.3a625144.chunk.js.LICENSE"
+    "url": "/SURVEYGLANCE_REACT/static/js/2.0ac5ebed.chunk.js.LICENSE"
   },
   {
-    "revision": "ca5fd831ee1b37135e78",
-    "url": "/SURVEYGLANCE_REACT/static/js/main.781272c4.chunk.js"
+    "revision": "71c6d30975d1bc473d84",
+    "url": "/SURVEYGLANCE_REACT/static/js/main.9a0cee44.chunk.js"
   },
   {
     "revision": "c74fa89d1cc8d5447de6",
