@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.66db8dcb.chunk.css",
-    "main.js": "/static/js/main.20d63725.chunk.js",
-    "main.js.map": "/static/js/main.20d63725.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.e39e5418.js",
-    "runtime-main.js.map": "/static/js/runtime-main.e39e5418.js.map",
-    "static/css/2.35382725.chunk.css": "/static/css/2.35382725.chunk.css",
-    "static/js/2.487ec4b3.chunk.js": "/static/js/2.487ec4b3.chunk.js",
-    "static/js/2.487ec4b3.chunk.js.map": "/static/js/2.487ec4b3.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ce48d0b69aecc73cd44c8d00c5388b9a.js": "/precache-manifest.ce48d0b69aecc73cd44c8d00c5388b9a.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.35382725.chunk.css.map": "/static/css/2.35382725.chunk.css.map",
-    "static/css/main.66db8dcb.chunk.css.map": "/static/css/main.66db8dcb.chunk.css.map",
-    "static/js/2.487ec4b3.chunk.js.LICENSE": "/static/js/2.487ec4b3.chunk.js.LICENSE",
-    "static/media/mdb.css": "/static/media/arrow_right.8ef6a08c.svg"
+    "main.css": "/SURVEYGLANCE_REACT/static/css/main.66db8dcb.chunk.css",
+    "main.js": "/SURVEYGLANCE_REACT/static/js/main.9b1aeec9.chunk.js",
+    "main.js.map": "/SURVEYGLANCE_REACT/static/js/main.9b1aeec9.chunk.js.map",
+    "runtime-main.js": "/SURVEYGLANCE_REACT/static/js/runtime-main.0fa3dbd2.js",
+    "runtime-main.js.map": "/SURVEYGLANCE_REACT/static/js/runtime-main.0fa3dbd2.js.map",
+    "static/css/2.d83ce507.chunk.css": "/SURVEYGLANCE_REACT/static/css/2.d83ce507.chunk.css",
+    "static/js/2.487ec4b3.chunk.js": "/SURVEYGLANCE_REACT/static/js/2.487ec4b3.chunk.js",
+    "static/js/2.487ec4b3.chunk.js.map": "/SURVEYGLANCE_REACT/static/js/2.487ec4b3.chunk.js.map",
+    "index.html": "/SURVEYGLANCE_REACT/index.html",
+    "precache-manifest.6c2549c3590a59b6a854b7a4c74cc593.js": "/SURVEYGLANCE_REACT/precache-manifest.6c2549c3590a59b6a854b7a4c74cc593.js",
+    "service-worker.js": "/SURVEYGLANCE_REACT/service-worker.js",
+    "static/css/2.d83ce507.chunk.css.map": "/SURVEYGLANCE_REACT/static/css/2.d83ce507.chunk.css.map",
+    "static/css/main.66db8dcb.chunk.css.map": "/SURVEYGLANCE_REACT/static/css/main.66db8dcb.chunk.css.map",
+    "static/js/2.487ec4b3.chunk.js.LICENSE": "/SURVEYGLANCE_REACT/static/js/2.487ec4b3.chunk.js.LICENSE",
+    "static/media/mdb.css": "/SURVEYGLANCE_REACT/static/media/arrow_right.8ef6a08c.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e39e5418.js",
-    "static/css/2.35382725.chunk.css",
+    "static/js/runtime-main.0fa3dbd2.js",
+    "static/css/2.d83ce507.chunk.css",
     "static/js/2.487ec4b3.chunk.js",
     "static/css/main.66db8dcb.chunk.css",
-    "static/js/main.20d63725.chunk.js"
+    "static/js/main.9b1aeec9.chunk.js"
   ]
 }
