@@ -7,7 +7,7 @@ import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import User from "./components/User";
 import Dashboard from "./components/Dashboard";
-import { FaPowerOff, FaSignInAlt, FaUser } from "react-icons/fa";
+import { FaPowerOff, FaSignInAlt} from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
 
 
@@ -50,8 +50,8 @@ class App extends Component {
     }
 
     return (
-      <Router basename="/">
-      >
+      <Router>
+      
         <div>
           <Navbar
             expand="lg"

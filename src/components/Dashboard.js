@@ -136,7 +136,7 @@ class Dashboard extends Component{
             <Card bg = "danger "text="white">
                 <Card.Body>
                 <Card.Title>Draft </Card.Title>
-                <Card.Text>{this.state.count.draftCount}</Card.Text>    
+                <Card.Text text="white">{this.state.count.draftCount}</Card.Text>    
                 </Card.Body>
             </Card>
             </div>

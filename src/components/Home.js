@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 import CardDeck from "react-bootstrap/CardDeck"
 import Row from "react-bootstrap/Row"
 import Jumbotron from "react-bootstrap/Jumbotron"
+import {Link} from "react-router-dom"
 
 export class Home extends Component {
   constructor() {
@@ -74,7 +75,14 @@ export class Home extends Component {
                       <Card.Title>{params.name}</Card.Title>
                       <Card.Text>{params.description}<br/>
                    <label>Created On:</label>{"   "}{params.createdDt.slice(0,10)}<br/>
-                   <Button>{params.status}</Button>
+                   <Button>{params.status}</Button><br/>
+                   <Link to = {{pathname:'/response',
+                   state:{
+                    survey:params
+                   }
+                  }}>
+                  Show Details
+                      </Link>
                       </Card.Text>
                       </Card.Body>
                     </Card>
