@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MUIDataTable from "mui-datatables";
 import {dataGet} from "./GetData";
+import {Redirect} from "react-router-dom"
 
 
 export class ResponseTable extends Component{
@@ -9,65 +10,108 @@ export class ResponseTable extends Component{
     constructor(){
         super();
         this.state={
-            responses:[]
+            responses:[],
+            questions:[],
+            questionIds:[],
+            columns:[
+              {
+                name: "responseId",
+                label: "ResponseId",
+                options: {
+                 filter: true,
+                 sort: true,
+                 display:false,
+                }
+               },"UserId","Questions Answered"],
+            isLoading:true,
+            answers:[],
+            rowData:[],
+            toDetail:false
         }
     }
 
     componentDidMount(){
-      console.log(this.props.location.state)
       dataGet('/response/survey/'+this.props.location.state.survey.id)
       .then(res =>{
         this.setState({
           responses:res
         })
       })
-    }
+      this.state.questionIds=this.props.location.state.survey.questionIdList
 
+      this.props.location.state.survey.questionIdList.map(questionId =>{   
+        dataGet('/question/'+questionId)
+           .then(que=>{
+             this.state.columns.push("Q."+JSON.parse(que.item).title)
+            })
+      })
+      console.log(this.state.columns)
+
+  }
+
+  getDetail(params){
+    this.setState({
+      rowData:params,
+      toDetail:true
+    })
+  }
+
+  
 
 
 
     render(){
 
-    const data =[]
+     
+    if(this.state.toDetail){
+      return(
+        <Redirect to ={{pathname:"/responseDetails",
+                        state:{
+                          data:this.state.rowData
+                        }}}/>
+      )
+    }
+
+
+
+      const data =[]
 
 
      this.state.responses.map(res=>{
-        const object =[]
-        object.push(res.userId,res.data.length+"/"+this.props.location.state.survey.questionIdList.length,res.createdDt.slice(0,10),res.status)
-        data.push(object)
-     })
+      const object=[]
+      var id={
+        responseId:res.id
+      }
+        object.push(id,res.userId,res.data.length+"/"+this.props.location.state.survey.questionIdList.length)
 
-      
-      var columns = ["UserId","Questions Answered","Submit Date","Status"]
-       
-      this.state.responses.map(res=>{
-        res.data.map(obj =>{
-          var question=""
-          dataGet('/question/'+obj.questionId)
-          .then(response=>{
-            console.log(response.item)
-            console.log(JSON.parse(response.item).title);
-            question=JSON.parse(response.item).title
-            console.log(question)
-            columns.push(question) 
-         })
-          })
-        })
-      
-       
-          
+        this.state.questionIds.forEach(questionId => {
+          const val =  res.data.filter(res=> res.questionId == questionId);
+          if(val.length>0){
+            object.push(val[0].responseItem);
+          }else{
+            object.push('-');
+          }
+        });
+        data.push(object)
+      });
+     
+  
+            
        const options = {
         filterType: "dropdown",
-        responsive: "scroll"
+        responsive: "scroll",
+        onRowClick:rowData =>this.getDetail(rowData), 
       };
   
       return (
-        <MUIDataTable style={{marginTop:"10%"}}
+        <div style={{marginTop:"60px"}}>
+        <MUIDataTable style={{marginTop:"40%"}}
           title={"Responses"}
           data={data}
-          columns={columns}
+          columns={this.state.columns}
           options={options}
         />
+        </div>
       );
     }
 }

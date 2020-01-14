@@ -41,7 +41,6 @@ handlePassword = event =>{
       username:this.state.username,
       password:this.state.password
     };
-    let res ={};
     dataPost('/user/login',user)
     .then(response=>{
       if(response.hasOwnProperty('userName')){

@@ -64,7 +64,7 @@ export class Home extends Component {
                   <CardDeck>
                   {this.state.surveys.map(params =>{
                    return(
-                   <Card className="col-md-4" key ={params.id}>
+                   <Card className="col-md-8" key ={params.id}>
                      <Figure>
                        <Figure.Image
                        src={params.imagePath}  

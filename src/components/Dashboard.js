@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Chart from "react-apexcharts";
 import Button from 'react-bootstrap/Button'
@@ -121,7 +120,7 @@ class Dashboard extends Component{
                 }
 
         return(
-            <div >
+            <div style={{marginTop:"5%"}}>
             <div >
             <Row>
             <div className ="col-md-3">
@@ -136,7 +135,7 @@ class Dashboard extends Component{
             <Card bg = "danger "text="white">
                 <Card.Body>
                 <Card.Title>Draft </Card.Title>
-                <Card.Text text="white">{this.state.count.draftCount}</Card.Text>    
+                <Card.Text>{this.state.count.draftCount}</Card.Text>    
                 </Card.Body>
             </Card>
             </div>
