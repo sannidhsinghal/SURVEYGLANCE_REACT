@@ -10,6 +10,8 @@ import Dashboard from "./components/Dashboard";
 import { FaPowerOff, FaSignInAlt} from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
 import ResponseDetails from "./components/ResponseDetails";
+import SurveyRequest from "./components/SurveyRequest"
+import SurveyGraph from "./components/SurveyGraph";
 
 
 class App extends Component {
@@ -83,6 +85,7 @@ class App extends Component {
           <Route exact path="/user" component={User} />
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
+          <Route exact path ="/requests" component={SurveyRequest}/>
           <Route exact path="/" component={LoginPage} />
         </div>
       </Router>

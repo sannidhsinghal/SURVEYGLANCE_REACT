@@ -3,6 +3,8 @@ import {dataGet} from './GetData'
 import Card from 'react-bootstrap/Card'
 import Figure from 'react-bootstrap/Figure'
 import Popover from 'react-bootstrap/Popover'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Image from 'react-bootstrap/Image'
 
 
 
@@ -13,7 +15,6 @@ class ResponseDetails extends Component{
         super();
         this.state={
             response:[],
-            view:""
         }
 }
 
@@ -25,31 +26,26 @@ componentDidMount(){
             response:res,
         })
     })
-  console.log(this.state.response)
 }
 
 
-zoomImage(params){
-  console.log("Zoom image")
-  return(
-    // <Popover>
-    // <Popover.Content>
-    <Figure>
-    <Figure.Image
-      src={params}
-    />
-    ></Figure>
-    // </Popover.Content>    
-    // </Popover>
-  )
-}
 
 renderSwitch(params){
    switch(params.question.itemType.code){
        case 'Media':
-               console.log(params)
+        const popover = (
+          <Popover id="popover-basic" outOfBoundaries="false">
+            <Popover.Title >Image</Popover.Title>
+            <Popover.Content>
+           <Image style={{height:"400px",width:"1200px"}}
+             src={params.responseItem}
+           />
+            </Popover.Content>
+          </Popover>
+          );
                return(
-                   <Figure onClick={this.zoomImage(params.responseItem)}>
+                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                   <Figure>
                    <Figure.Image 
                      width={171}
                      height={180}
@@ -57,15 +53,22 @@ renderSwitch(params){
                      src={params.responseItem}
                    />
                  </Figure>
+                 </OverlayTrigger>
                )
            
        case 'Text':
-        console.log(params)
            return(
                <div>
                 {params.responseItem}   
                </div>
-           )    
+           )  
+           
+      default:
+        return(
+          <div>
+            No response recorded
+          </div>
+        )
    }
 }
 
@@ -75,15 +78,13 @@ renderSwitch(params){
 
 render(){
 
-    const view=""
     return(
     <div style={{marginTop:"60px"}}>
     <Card>
-    <Card.Header>This is the header</Card.Header>    
+    <Card.Header>Responses</Card.Header>    
     <Card.Body>
      <ul>          
     {this.state.response.map(res=>{
-        console.log(res.question.itemType.code)
         return(
             <li style={{marginLeft:"80px"}} key={res.responseItem}>    
         <b>{"Q."}{" "}{" "}{JSON.parse(res.question.item).title}</b><br/>

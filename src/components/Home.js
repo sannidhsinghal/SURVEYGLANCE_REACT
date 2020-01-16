@@ -8,6 +8,7 @@ import CardDeck from "react-bootstrap/CardDeck"
 import Row from "react-bootstrap/Row"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import {Link} from "react-router-dom"
+import {FaChartBar} from 'react-icons/fa'
 
 export class Home extends Component {
   constructor() {
@@ -73,7 +74,7 @@ export class Home extends Component {
                        </Figure>
                       <Card.Body> 
                       <Card.Title>{params.name}</Card.Title>
-                      <Card.Text>{params.description}<br/>
+                      <Card.Text><Link to ="/requests">Show Requests</Link><br/>{params.description}<br/>
                    <label>Created On:</label>{"   "}{params.createdDt.slice(0,10)}<br/>
                    <Button>{params.status}</Button><br/>
                    <Link to = {{pathname:'/response',

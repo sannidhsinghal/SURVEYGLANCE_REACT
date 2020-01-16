@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MUIDataTable from "mui-datatables";
 import {dataGet} from "./GetData";
 import {Redirect} from "react-router-dom"
+import SurveyGraph from './SurveyGraph';
 
 
 export class ResponseTable extends Component{
@@ -111,6 +112,9 @@ export class ResponseTable extends Component{
           columns={this.state.columns}
           options={options}
         />
+        <div style={{height:"800px",width:"800px"}}>
+        <SurveyGraph/>
+        ></div>
         </div>
       );
     }
