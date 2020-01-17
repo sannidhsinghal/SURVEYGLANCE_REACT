@@ -71,25 +71,19 @@ class App extends Component {
           <br />
 
           <Navbar.Toggle />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ml-auto">
-                <Nav.Link href="/home"> Home </Nav.Link>
-                <Nav.Link href="/dashboard"> Dashboard</Nav.Link>
-                <Nav.Link href="/signup">SignUp</Nav.Link>
-                <Nav.Link href="/survey">Survey</Nav.Link>
-              </Nav>
-
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
               <Nav.Link href="/home"><HomeIcon/> Home </Nav.Link>
               <Nav.Link href="/dashboard"><DashboardIcon/> Dashboard</Nav.Link>
+              <Nav.Link href="/signup">SignUp</Nav.Link>
+                <Nav.Link href="/survey">Survey</Nav.Link>
             </Nav>
 
             <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
           </Navbar.Collapse>
-        </Navbar>
-        </div>);
-        }
+         </Navbar>
+         </div>)};
+
     return (
       <div>
       {navbar}
@@ -102,14 +96,11 @@ class App extends Component {
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
-          <Route exact path="/" component={LoginPage} />
-       </Router>   
-       </div>
-    )
+          <Route exact path="/" component={LoginPage} />    )
           <Route exact path="/signup" component={SignUpPage}/>
           <Route exact path="/survey" component={SurveyPage}/>
+          </Router>
         </div>
-      </Router>
     );
   }
 }
