@@ -2,85 +2,46 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
+import { dataPost } from "./GetData";
 
  class SignUpPage extends React.Component {
   constructor(){
     super()
   this.state = {
-    "city": "",
- "country": "",
- "currentLocation": "",
- "deviceInfo": {
-   "imeiNo": "string",
-   "modelNo": "string",
-   "os": "string",
-   "serialNo": "string",
-   "version": "string"
- },
+   "userName":"",
+   "fullName": "",
    "emailId": "",
- "fullName": "",
- "gender": "MALE",
- "password": "",
- "phoneNumber": "",
- "pincode": 0,
- "state": "",
- "streetAddress": "",
- "totalCredits": 0,
- "userName":""
+   "password": "",
+   "phoneNumber": "",
+   "gender": "",
   }
      this.handleChange = this.handleChange.bind(this);
      this.handleGender = this.handleGender.bind(this);
   }
- 
 handleChange(event){
   this.setState({
    [event.target.name] : event.target.value
-  }     
-  )
+  })
 }
-
 handleGender = event =>{
     this.setState({
         gender:event.target.value
     })
 }
-
 handleSubmit = event => {
   event.preventDefault();
-
   const user = {
-    city: this.state.city,
-    country: this.state.country,
-    currentLocation: this.state.currentLocation,
-    "deviceInfo": {
-      "imeiNo": "string",
-      "modelNo": "string",
-      "os": "string",
-      "serialNo": "string",
-      "version": "string"
-    },
-    emailId: this.state.emailId,
+    userName: this.state.userName,
     fullName: this.state.fullName,
-    gender: this.state.gender,
+    emailId: this.state.emailId,
     password: this.state.password,
     phoneNumber: this.state.phoneNumber,
-    pincode: this.state.pincode,
-    state: this.state.state,
-    streetAddress: this.state.streetAddress,
-
-    totalCredits: this.state.totalCredits,
-    userName: this.state.userName,
+    gender: this.state.gender
   };
-  console.log(this.state.city)
-  console.log(user)
-
-  axios.post(`https://surveyglance.herokuapp.com/api/tache/facade/user/createUser`,user)
+  dataPost(`/user/createUser`,user)
     .then(res => {
       console.log(res);
       console.log(res.data);
-    })
-    .catch(function(error){
-      console.log(error)
     })
 }
   render() {
@@ -111,7 +72,6 @@ handleSubmit = event => {
      </fieldset>
      </Form>
      </div>
-    )
-  }
+    )}
 }
 export default SignUpPage
