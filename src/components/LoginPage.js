@@ -6,9 +6,6 @@ import {FaSignInAlt } from 'react-icons/fa';
 import { dataPost } from "./GetData";
 import {Redirect} from 'react-router-dom'
 
-
-
-
 export class LoginPage extends Component {
     
   constructor(){
