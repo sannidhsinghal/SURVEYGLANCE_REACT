@@ -12,8 +12,6 @@ import { ResponseTable } from "./components/ResponseTable";
 import ResponseDetails from "./components/ResponseDetails";
 import SurveyRequest from "./components/SurveyRequest"
 import SurveyGraph from "./components/SurveyGraph";
-import UserData from './components/UserData.js'
-
 
 
 class App extends Component {
@@ -79,15 +77,12 @@ class App extends Component {
               <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
             </Navbar.Collapse>
           </Navbar>
-          
-      
-       
+
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/logout" component={LogoutPage} />
           <Route exact path="/user" component={User} />
-          <Route path="/UserData" component={UserData}/>
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
