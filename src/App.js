@@ -12,6 +12,8 @@ import { ResponseTable } from "./components/ResponseTable";
 import ResponseDetails from "./components/ResponseDetails";
 import SurveyRequest from "./components/SurveyRequest"
 import SurveyGraph from "./components/SurveyGraph";
+import SurveyPage from "./components/SurveyPage"
+import SignUpPage from "./components/SignUpPage";
 
 
 class App extends Component {
@@ -72,6 +74,8 @@ class App extends Component {
               <Nav className="ml-auto">
                 <Nav.Link href="/home"> Home </Nav.Link>
                 <Nav.Link href="/dashboard"> Dashboard</Nav.Link>
+                <Nav.Link href="/signup">SignUp</Nav.Link>
+                <Nav.Link href="/survey">Survey</Nav.Link>
               </Nav>
 
               <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
@@ -87,6 +91,8 @@ class App extends Component {
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
           <Route exact path="/" component={LoginPage} />
+          <Route exact path="/signup" component={SignUpPage}/>
+          <Route exact path="/survey" component={SurveyPage}/>
         </div>
       </Router>
     );
