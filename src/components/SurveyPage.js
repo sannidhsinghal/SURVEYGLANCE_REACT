@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 import { Input } from 'reactstrap';
 import Switch from "react-switch";
+import { dataPost } from "./GetData";
 
 export default class SurveyPage extends React.Component {
   constructor(){
@@ -53,7 +54,7 @@ handleSubmit = event => {
   console.log(this.state.city)
   console.log(user)
 
-  axios.post(`/survey/createSurvey`,user)
+  dataPost(`/survey/createSurvey`,user)
     .then(res => {
       console.log(res);
       console.log(res.data);
