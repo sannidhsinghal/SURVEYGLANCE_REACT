@@ -11,6 +11,8 @@ import { FaPowerOff, FaSignInAlt} from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
 import ResponseDetails from "./components/ResponseDetails";
 import SurveyRequest from "./components/SurveyRequest"
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import HomeIcon from '@material-ui/icons/Home';
 import SurveyGraph from "./components/SurveyGraph";
 import SurveyPage from "./components/SurveyPage"
 import SignUpPage from "./components/SignUpPage";
@@ -26,6 +28,7 @@ class App extends Component {
 
   render() {
     var loggedNavBar;
+    var navbar;
     if (localStorage.getItem("userId")) {
       loggedNavBar = (
         <Navbar.Text className="d-flex p-md-0">
@@ -36,6 +39,7 @@ class App extends Component {
             href="/logout"
             className="loginBtn"
             location={this.props.location}
+             onClick={() =>{localStorage.removeItem('userId')}}
           >
             {" "}
             <FaPowerOff /> Logout
@@ -54,22 +58,19 @@ class App extends Component {
       );
     }
 
-    return (
-      <Router>
-      
-        <div>
-          <Navbar
-            expand="lg"
-            variant="dark"
-            bg="dark"
-            fixed="top"
-            className="menubar pt-0 pb-0 pr-0"
-          >
-            <Navbar.Brand href="/home">SURVEYGLANCE</Navbar.Brand>
-            <br />
+    if(localStorage.getItem("userId")){
+      navbar= (<div>
+        <Navbar
+          expand="lg"
+          variant="dark"
+          bg="dark"
+          fixed="top"
+          className="menubar pt-0 pb-0 pr-0"
+        >
+          <Navbar.Brand href="/home">SURVEYGLANCE</Navbar.Brand>
+          <br />
 
-            <Navbar.Toggle />
-
+          <Navbar.Toggle />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
                 <Nav.Link href="/home"> Home </Nav.Link>
@@ -78,10 +79,21 @@ class App extends Component {
                 <Nav.Link href="/survey">Survey</Nav.Link>
               </Nav>
 
-              <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
-            </Navbar.Collapse>
-          </Navbar>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Link href="/home"><HomeIcon/> Home </Nav.Link>
+              <Nav.Link href="/dashboard"><DashboardIcon/> Dashboard</Nav.Link>
+            </Nav>
 
+            <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        </div>);
+        }
+    return (
+      <div>
+      {navbar}
+      <Router>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/home" component={Home} />
@@ -91,6 +103,9 @@ class App extends Component {
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
           <Route exact path="/" component={LoginPage} />
+       </Router>   
+       </div>
+    )
           <Route exact path="/signup" component={SignUpPage}/>
           <Route exact path="/survey" component={SurveyPage}/>
         </div>

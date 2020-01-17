@@ -14,7 +14,7 @@ class SurveyGraph extends Component{
 
 
      componentDidMount(){
-       dataGet('/report/response?surveyId=1')
+       dataGet('/report/response?surveyId='+this.props.id)
        .then(res=>{
            this.setState({
                responses:res.responseCount
