@@ -8,9 +8,6 @@ import {Redirect} from 'react-router-dom'
 import {TextField} from '@material-ui/core'
 import { LinearProgress } from '@material-ui/core';
 
-
-
-
 export class LoginPage extends Component {
     
   constructor(){

@@ -14,6 +14,8 @@ import SurveyRequest from "./components/SurveyRequest"
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
 import SurveyGraph from "./components/SurveyGraph";
+import SurveyPage from "./components/SurveyPage"
+import SignUpPage from "./components/SignUpPage";
 
 
 class App extends Component {
@@ -69,6 +71,13 @@ class App extends Component {
           <br />
 
           <Navbar.Toggle />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                <Nav.Link href="/home"> Home </Nav.Link>
+                <Nav.Link href="/dashboard"> Dashboard</Nav.Link>
+                <Nav.Link href="/signup">SignUp</Nav.Link>
+                <Nav.Link href="/survey">Survey</Nav.Link>
+              </Nav>
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
@@ -97,6 +106,11 @@ class App extends Component {
        </Router>   
        </div>
     )
+          <Route exact path="/signup" component={SignUpPage}/>
+          <Route exact path="/survey" component={SurveyPage}/>
+        </div>
+      </Router>
+    );
   }
 }
 

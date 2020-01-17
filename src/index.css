@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: aqua;
 }
 
 code {
@@ -106,3 +107,94 @@ table.table th{
   height: 70%;
   width: 20%;
 }
+
+
+
+
+.box{
+  width: 590px;
+  height: 750px;
+	padding: 60px;
+	position: absolute;
+	top: 40%;
+  left: 40%;
+	transform: translate(-20%,-20%);
+  background: #34495E;
+  background-color: #055b58;
+  text-align: center;
+  
+}
+.input {
+     margin: 0;
+    text-align: left;
+    width: 100%;
+    padding: 5px 3px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: white;
+}
+.textarea{
+  text-align: center;
+  width: 50%;
+  padding: 10px 3px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: white;
+}
+.button[type="submit"]{
+  margin-bottom: 28px;
+     align-self: right;
+  text-align: center;
+  width: 120px;
+  height: 32px;
+  background: aqua;
+  border: none;
+  border-radius: 2px;
+  color: black;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.h2{
+  color: black;
+  margin: 0 0 20px 0;
+  font-weight: 300;
+  font-size: 28px;
+  margin-top: auto;
+}
+.container{
+  width: 100%;
+  clear: both;
+}
+.container input{
+  width: 80%;
+  clear: both;
+  float: right;
+  align-content: right;
+}
+.label{
+  text-decoration-color:black;
+}
+
+.box1{
+  width: 500px;
+  height: 540px;
+	padding: 60px;
+	position: absolute;
+	top: 30%;
+  left: 40%;
+	transform: translate(-20%,-20%);
+  background: #34495E;
+  background-color: #055b58;
+  text-align: center;
+}
+.h5, h5{
+  font-style: normal;
+  color: #ffffff;
+}
+
+
