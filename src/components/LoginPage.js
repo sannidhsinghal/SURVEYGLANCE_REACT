@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card'
 import {FaSignInAlt } from 'react-icons/fa';
 import { dataPost } from "./GetData";
 import {Redirect} from 'react-router-dom'
+import {TextField} from '@material-ui/core'
+import { LinearProgress } from '@material-ui/core';
 
 
 
@@ -16,11 +18,11 @@ export class LoginPage extends Component {
      this.state={
        username:"",
        password:"",
+       userId:"",
        isLogged:false,
-       users:[],
        source:'',
-       data:[],
-       error:""
+       error:"",
+       completed:0
      }
   }
 
@@ -29,7 +31,7 @@ export class LoginPage extends Component {
     this.setState({ username: event.target.value });
   }
   
-handlePassword = event =>{
+  handlePassword = event =>{
     this.setState({password : event.target.value})
   }
 
@@ -45,10 +47,10 @@ handlePassword = event =>{
     .then(response=>{
       if(response.hasOwnProperty('userName')){
         this.setState({
-          isLogged:true
-        })
+          isLogged:true,
+          userId:response.id
+          })
         localStorage.setItem('userId',response.id)
-        localStorage.setItem('isLogged',true)
       }
     })
   }
@@ -62,10 +64,11 @@ handlePassword = event =>{
 
   if(this.state.isLogged){
     return(
-      <Redirect to ='/home'></Redirect>
+      <Redirect to ={{pathname:'/home',state:{
+        userId:this.state.userId
+      }}}></Redirect>
     )
   }
-
 
 
         return (
@@ -73,19 +76,19 @@ handlePassword = event =>{
             <div className="col-sm-4">
             <Card style={{ display:'flex', justifyContent:'center' }}>
                      <Card.Body className="p-4">  
-                    <Form  onSubmit ={this.handleSubmit}>
+                    <form  onSubmit ={this.handleSubmit}>
                         <div className="">
                          </div>
                           <h3 className="text-center mb-3">LOGIN</h3>
                             <div className ="fields">
                               <p className="text-danger">{this.state.error}</p>
-                               <Form.Control  type = "email " placeholder = "Email" onChange= {this.handleChange}/>
+                               <TextField variant="standard" margin ="normal" fullWidth placeholder = "Username" onChange= {this.handleChange}/>
                               <br/>
-                                <Form.Control  type = "password" placeholder="Password"onChange= {this.handlePassword}/>
+                                <TextField variant="standard" type = "password" margin="normal" fullWidth placeholder="Password"onChange= {this.handlePassword}/>
                               <br/>
                               <Button variant="login_btn" type = "submit" className="m-0 btn-block "><FaSignInAlt/> Login</Button>
                          </div>
-                     </Form>
+                     </form>
                     </Card.Body>
                     </Card>            
                     </div>

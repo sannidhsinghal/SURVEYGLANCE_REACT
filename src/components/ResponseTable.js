@@ -51,6 +51,7 @@ export class ResponseTable extends Component{
   }
 
   getDetail(params){
+    console.log(params)
     this.setState({
       rowData:params,
       toDetail:true
@@ -102,6 +103,8 @@ export class ResponseTable extends Component{
         filterType: "dropdown",
         responsive: "scroll",
         onRowClick:rowData =>this.getDetail(rowData), 
+        onRowsDelete:false,
+        disableToolbarSelect:true
       };
   
       return (
@@ -113,7 +116,8 @@ export class ResponseTable extends Component{
           options={options}
         />
         <div style={{height:"800px",width:"800px"}}>
-        <SurveyGraph/>
+        <SurveyGraph
+        id={this.props.location.state.survey.id}/>
         ></div>
         </div>
       );

@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {dataGet} from './GetData'
 import MUIDataTable from 'mui-datatables';
+import Button from 'react-bootstrap/Button'
 
 
 
@@ -9,8 +10,10 @@ class SurveyRequest extends Component{
         super();
         this.state={
             requests:[],
-            data:[]
+            data:[],
+            rowIndex:[]
         }
+        this.updateStatus=this.updateStatus.bind(this)
     }
 
    componentDidMount(){
@@ -22,6 +25,26 @@ class SurveyRequest extends Component{
         
        })
    }
+
+   printData(params){
+     this.setState({
+       rowIndex:params
+     })
+      params.map(data=>{
+          console.log(data.dataIndex)
+         }
+      ) 
+  }
+
+  updateStatus(){
+    if(this.state.rowIndex.length===0){
+      console.log("Empty Data")
+      alert('Please select some user')
+    }
+    else{
+
+    }
+  }
 
 
      render(){
@@ -37,21 +60,23 @@ class SurveyRequest extends Component{
         })
       const options = {
         filterType: "dropdown",
-        responsive: "scroll",
-        search:'true'
+        responsive: "stacked",
+        search:'true',
+        // onRowsSelect:rowData=>this.printData(rowData),
+        disableToolbarSelect:true,
       };
 
     //    console.log(this.state.requests)
     //    console.log(this.state.data)
        return(
-           <div>
-             This is the survey request page  
+           <div style={{marginTop:"75px"}}>
              <MUIDataTable
              title="Requests"
              columns={["User Name","Applied On","Current Status"]}
              data={data}
              options={options}
              />
+             <Button onClick={this.updateStatus}>Update</Button>
            </div>
        )
    }
