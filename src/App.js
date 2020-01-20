@@ -14,7 +14,7 @@ import SurveyRequest from "./components/SurveyRequest"
 import SurveyGraph from "./components/SurveyGraph";
 import SurveyPage from "./components/SurveyPage"
 import SignUpPage from "./components/SignUpPage";
-
+import ShowUserDetail from "./components/ShowUserDetail"
 
 class App extends Component {
   constructor() {
@@ -76,6 +76,7 @@ class App extends Component {
                 <Nav.Link href="/dashboard"> Dashboard</Nav.Link>
                 <Nav.Link href="/signup">SignUp</Nav.Link>
                 <Nav.Link href="/survey">Survey</Nav.Link>
+                <Nav.Link href="/showuserdetail">UserDetail</Nav.Link>
               </Nav>
 
               <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
@@ -93,6 +94,7 @@ class App extends Component {
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage}/>
           <Route exact path="/survey" component={SurveyPage}/>
+          <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
         </div>
       </Router>
     );
