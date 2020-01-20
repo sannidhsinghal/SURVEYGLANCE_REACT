@@ -83,6 +83,7 @@ class App extends Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/logout" component={LogoutPage} />
           <Route exact path="/user" component={User} />
+          <Route exact path="/UserData" component={UserData}/>
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
