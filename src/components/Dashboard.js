@@ -5,10 +5,7 @@ import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import { dataGet } from "./GetData";
 
-
-
 class Dashboard extends Component{
-
    constructor(){
        super()
        this.state={
@@ -21,9 +18,6 @@ class Dashboard extends Component{
        this.handleDate = this.handleDate.bind(this)
        this.handleResponses = this.handleResponses.bind(this)
     }
-   
-
-
 
    componentDidMount()
    {
@@ -34,25 +28,20 @@ class Dashboard extends Component{
     handleDate(){
         dataGet("/report/count?format=date&userId="+localStorage.getItem("userId"))
         .then(response=>{
-            this.setState(
-                {
+            this.setState( {
                     count:response,
                     dates:response.surveyCount.date
-                }
-            )
+                })
        })
     }
     
-
-
     handleWeek(){
         dataGet("/report/count?format=week&userId="+localStorage.getItem("userId"))
         .then(response=>{
             this.setState(
                 {
                     dates:response.surveyCount.week
-                }
-            )
+                })
        })
 
     }
@@ -60,29 +49,22 @@ class Dashboard extends Component{
     handleMonth(){
         dataGet("/report/count?format=month&userId="+localStorage.getItem("userId"))
         .then(response=>{
-            this.setState(
-                {
+            this.setState({
                     dates:response.surveyCount.month
-                }
-            )
+                })
        })
-
     }
-    
     handleResponses(){
         dataGet("/report/count/userId?userId="+localStorage.getItem("userId"))
         .then(response=>{
             console.log(response)
-            this.setState(
-                {
+            this.setState({
                     responses:response
-                }
-            )
+                })
             console.log(this.state.responses)
             console.log(response.data)
         })
     }
-    
 
     render(){
         var dates = Object.keys(this.state.dates)
@@ -168,7 +150,7 @@ class Dashboard extends Component{
              <Chart  
               options={chartData.options}
               series={chartData.series}
-              type="line"
+              type="bar"
              />   
              </Card.Body>
              <center><b>No of surveys created</b></center>
