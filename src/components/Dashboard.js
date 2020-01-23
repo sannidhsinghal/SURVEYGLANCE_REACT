@@ -102,7 +102,7 @@ class Dashboard extends Component{
                 }
 
         return(
-            <div style={{marginTop:"5%"}}>
+            <div style={{marginTop:"5%"}} className="container-fluid">
             <div >
             <Row>
             <div className ="col-md-3">

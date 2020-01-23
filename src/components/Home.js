@@ -4,11 +4,11 @@ import { dataGet } from "./GetData";
 import { Button } from "react-bootstrap";
 import Figure from "react-bootstrap/Figure";
 import Spinner from "react-bootstrap/Spinner";
-import CardDeck from "react-bootstrap/CardDeck"
 import Row from "react-bootstrap/Row"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import {Link} from "react-router-dom"
 import {FaChartBar} from 'react-icons/fa'
+import AddIcon from '@material-ui/icons/Add';
 
 export class Home extends Component {
   constructor() {
@@ -22,7 +22,7 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    dataGet("/survey/surveys/"+localStorage.getItem('userId'))
+    dataGet("/survey/surveys/"+localStorage.getItem("userId"))
       .then(response => {
         this.setState({
           surveys: response,
@@ -61,22 +61,23 @@ export class Home extends Component {
               <Card>
                 <Card.Body>
                   <Card.Title>Total Surveys: {this.state.surveys.length}</Card.Title>
+                  <Link to ="/survey" style={{marginLeft:"90%"}}><AddIcon/>Create Survey</Link>
                   <Row>
-                  <CardDeck>
                   {this.state.surveys.map(params =>{
                    return(
-                   <Card className="col-md-8" key ={params.id}>
+                    <div className = "col-md-4" key={params.id} >
+                   <Card  key ={params.id}>
                      <Figure>
                        <Figure.Image
                        src={params.imagePath}  
+                       fluid
                        >
                        </Figure.Image>
                        </Figure>
                       <Card.Body> 
                       <Card.Title>{params.name}</Card.Title>
-                      <Card.Text><Link to ="/requests">Show Requests</Link><br/>{params.description}<br/>
+                      <Card.Text><Link to ={{pathname:"/requests", state:{surveyId:params.id}}  }>Show Requests</Link><br/>{params.description}<br/>
                    <label>Created On:</label>{"   "}{params.createdDt.slice(0,10)}<br/>
-                   <Button>{params.status}</Button><br/>
                    <Link to = {{pathname:'/response',
                    state:{
                     survey:params
@@ -87,9 +88,9 @@ export class Home extends Component {
                       </Card.Text>
                       </Card.Body>
                     </Card>
+                    </div>
                   )})
                 }
-                </CardDeck>
                 </Row>
                 </Card.Body>
                 </Card>
