@@ -3,6 +3,10 @@ import React from 'react';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 import { dataPost } from "./GetData";
+import {TextField} from "@material-ui/core"
+import {Card} from "react-bootstrap"
+import {Button} from "react-bootstrap"
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
  class SignUpPage extends React.Component {
   constructor(){
@@ -46,32 +50,36 @@ handleSubmit = event => {
 }
   render() {
     return (
-       <div>
-     <Form align="center" back onSubmit={this.handleSubmit} className="box1" >
-     <fieldset><legend><h2>SignUp Form</h2></legend>
-     <Form.Control type="text" name="userName" placeholder="UserName" onChange={this.handleChange}/>
+    <div className="loginParent">
+    <div className="col-sm-4">
+     <Card style={{ display:'flex', justifyContent:'center' }}>
+     <Card.Body className="p-4">
+     <form onSubmit={this.handleSubmit}> 
+    <h2>SIGNUP </h2>
+     <TextField variant="standard" margin ="normal" fullWidth type="text" name="userName" placeholder="Username" onChange={this.handleChange}/>
      <br/>
-     <Form.Control class="form-control" type="text" name="fullName" placeholder="FullName" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="fullName" placeholder="Full Name" onChange={this.handleChange}/>
      <br/>
-     <Form.Control class="form-control" type="email" name="emailId" placeholder="EmailId" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="email" name="emailId" placeholder="Email Id" onChange={this.handleChange}/>
      <br/>
-     <Form.Control class="form-control" type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
      <br/>
-     <Form.Control type="text" name="phoneNumber" placeholder="PhoneNumber" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth type="text" name="phoneNumber" placeholder="Contact No." onChange={this.handleChange}/>
      <br/>
-     <div>
-     <label><h5>Gender</h5></label>
+     <label>Gender</label><br/>
         <input type="radio" name="gender" value="MALE" onChange={this.handleGender}/>
-        <label><h5>MALE</h5></label>
+        <label>MALE</label>
        <input type="radio" name="gender" value = "FEMALE" onChange={this.handleGender}/>
-        <label><h5>FEMALE</h5></label>
-     </div>
-     {/*<Form.Control type="text" name="gender" placeholder="Gender" onChange={this.handleChange}/>*/}
+        <label>FEMALE</label>
      <br/>
-     <button class="button" type="submit" align="right">SignUp</button>
-     </fieldset>
-     </Form>
+     <Button variant="login_btn" className="m-0 btn-block" type="submit"><PersonAddIcon/>SignUp</Button>
+     </form> 
+     </Card.Body>
+     </Card>
      </div>
-    )}
+     </div>
+    )
+  
+  }
 }
 export default SignUpPage

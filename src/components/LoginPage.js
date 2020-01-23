@@ -7,6 +7,8 @@ import { dataPost } from "./GetData";
 import {Redirect} from 'react-router-dom'
 import {TextField} from '@material-ui/core'
 import { LinearProgress } from '@material-ui/core';
+import { Alert,AlertTitle } from '@material-ui/lab';
+
 
 export class LoginPage extends Component {
     
@@ -50,7 +52,12 @@ export class LoginPage extends Component {
         localStorage.setItem('userId',response.id)
       }
     })
-  }
+    .catch(error => {
+      this.setState({
+        error:error.response.data.message
+  });
+  })
+}
   
    
 
@@ -58,6 +65,8 @@ export class LoginPage extends Component {
     
   
   render() {
+
+    let alertBox=""
 
   if(this.state.isLogged){
     return(
@@ -67,9 +76,18 @@ export class LoginPage extends Component {
     )
   }
 
+  // if(this.state.error!==""){
+  //   alertBox=
+  //     <Alert severity="error">
+  //       <AlertTitle>Error</AlertTitle>
+  //       This is an error alert — check it out!
+  //       </Alert>
+  // }
+
 
         return (
             <div className="loginParent">
+              {alertBox}
             <div className="col-sm-4">
             <Card style={{ display:'flex', justifyContent:'center' }}>
                      <Card.Body className="p-4">  

@@ -1,10 +1,12 @@
 import React ,{Component} from 'react'
 import axios from 'axios';
+import { TextField } from '@material-ui/core';
+import {Button} from "react-bootstrap"
 
 class FileUpload   extends Component{
 
 
-    UPLOAD_ENDPOINT = 'https://surveyglance.herokuapp.com/api/tache/facade/response/upload/image'
+    UPLOAD_ENDPOINT = 'https://surveyglance.herokuapp.com/api/tache/facade/question/upload/excel?surveyId='+this.props.surveyId+'&userId='+this.props.userId
     constructor(props){
         super(props);
         this.state={
@@ -28,7 +30,8 @@ class FileUpload   extends Component{
             headers: {
                 'content-type': 'multipart/form-data'
             }
-        });
+        }
+        );
       }
 
     async onSubmit(e){
@@ -44,11 +47,13 @@ class FileUpload   extends Component{
 
     render() {
         return (
+            <center>
           <form onSubmit={ this.onSubmit }>
-            <h1> React File Upload Example</h1>
-            <input type="file" onChange={ this.onChange } />
-            <button type="submit">Upload File</button>
+            <p> Please upload the excel containing the questions</p>   
+            <TextField variant="outlined" type="file" onChange={ this.onChange } /><br/>
+            <Button variant="login_btn" type="submit">Upload File</Button>
           </form>
+          </center>
        )
       }
 }
