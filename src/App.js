@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import User from "./components/User";
+import UserData from './components/UserData.js'
 import Dashboard from "./components/Dashboard";
 import { FaPowerOff, FaSignInAlt} from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
@@ -16,6 +17,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import SurveyGraph from "./components/SurveyGraph";
 import SurveyPage from "./components/SurveyPage"
 import SignUpPage from "./components/SignUpPage";
+import surveyQuestions from './components/surveyQuestions'
 
 
 class App extends Component {
@@ -100,6 +102,7 @@ class App extends Component {
           <Route exact path="/" component={LoginPage} />    )
           <Route exact path="/signup" component={SignUpPage}/>
           <Route exact path="/survey" component={SurveyPage}/>
+          <Route exact path="/Chart" component={surveyQuestions}/>
           </Router>
         </div>
     );
