@@ -32,7 +32,7 @@ export class ResponseTable extends Component{
     }
 
     componentDidMount(){
-      dataGet('/response/survey/'+this.props.location.state.survey.id)
+      dataGet('/response/survey/1')
       .then(res =>{
         this.setState({
           responses:res
@@ -116,9 +116,10 @@ export class ResponseTable extends Component{
           options={options}
         />
         <div style={{height:"800px",width:"800px"}}>
-        <SurveyGraph
+        {/* <SurveyGraph
         id={this.props.location.state.survey.id}/>
-        ></div>
+        >*/}
+        </div>
         </div>
       );
     }
