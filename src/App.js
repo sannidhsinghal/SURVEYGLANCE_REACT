@@ -16,15 +16,12 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SignUpPage from "./components/SignUpPage";
-<<<<<<< HEAD
 import surveyQuestions from './components/surveyQuestions'
-=======
 import ShowUserDetail from "./components/ShowUserDetail";
 import ChartPage from "./components/ChartPage"
 import UserData from "./components/UserData"
 import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
->>>>>>> b1b56daf4a5bb750dc9a3225cd8a4bdbf8b47fac
 
 
 class App extends Component {
@@ -124,14 +121,11 @@ class App extends Component {
           <Route exact path ="/requests" component={SurveyRequest}/>
           <Route exact path="/" component={LoginPage} />    
           <Route exact path="/signup" component={SignUpPage}/>
-<<<<<<< HEAD
           <Route exact path="/survey" component={SurveyPage}/>
           <Route exact path="/Chart" component={surveyQuestions}/>
-=======
           <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
           <Route exact path="/chartpage" component={ChartPage}/>
           <Route exact path="/survey" component={SurveyStepper}/>
->>>>>>> b1b56daf4a5bb750dc9a3225cd8a4bdbf8b47fac
           </Router>
         </div>
     );
