@@ -132,7 +132,6 @@ table.table th{
     margin: 4px 0;
     box-sizing: border-box;
     border-radius: 4px;
-    color: white;
 }
 .textarea{
   text-align: center;
@@ -192,9 +191,4 @@ table.table th{
   background-color: #055b58;
   text-align: center;
 }
-.h5, h5{
-  font-style: normal;
-  color: #ffffff;
-}
-
 

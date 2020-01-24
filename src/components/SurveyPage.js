@@ -1,23 +1,24 @@
-
 import React from 'react';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 import { Input } from 'reactstrap';
 import Switch from "react-switch";
 import { dataPost } from "./GetData";
+import {TextField} from '@material-ui/core'
+import {Card,Button} from "react-bootstrap"
 
 export default class SurveyPage extends React.Component {
   constructor(){
     super()
   this.state = {
-    "baseLanguage": "",
-    "categoryId": 0,
-    "description": "",
-    "ensurePoints": "",
-    "isIpAllowed":false,
-    "keyPoints": "",
-    "name": "",
-    "singleResponseUser": false
+    baseLanguage: "",
+    categoryId: 0,
+    description: "",
+    ensurePoints: "",
+    isIpAllowed:false,
+    keyPoints: "",
+    name: "",
+    singleResponseUser: false
   }
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,7 +55,7 @@ handleSubmit = event => {
   console.log(this.state.city)
   console.log(user)
 
-  dataPost(`/survey/createSurvey`,user)
+  dataPost('/survey/createSurvey',user)
     .then(res => {
       console.log(res);
       console.log(res.data);
@@ -62,43 +63,63 @@ handleSubmit = event => {
 }
   render() {
     return (
-     <div className="container">
-     <Form align="center" back onSubmit={this.handleSubmit} className="box" >
-     <fieldset>
-     <legend><h2 class="h2">Survey Form</h2></legend>
-     <div className="input">
+     <div className="loginParent"> 
+     <div className="col-md-6">
+     <Card style={{ display:'flex', justifyContent:'center' ,marginTop:"50px" }}>
+     <form onSubmit={this.handleSubmit} >
+     <Card.Body>
+     <Card.Header>Enter survey details</Card.Header>
      <label>Name: </label>
-     <Form.Control type="text"  name="name" onChange={this.handleChange}/>
-     <br></br><br/>
+     <TextField variant="standard" margin ="normal" fullWidth name="name" onChange={this.handleChange}/>
+     <br/>
      <label>Language : </label>
-     <Form.Control class="" type="text" name="baseLanguage" align="right" onChange={this.handleChange}/>
-     <br/><br/>
+     <TextField variant="standard" margin ="normal" fullWidth name="baseLanguage" align="right" onChange={this.handleChange}/>
+     <br/>
      <label>Category: </label>
-     <Form.Control class="" type="text" name="categoryId" onChange={this.handleChange}/>
-     <br/><br/>
-     <label>ENSURE:</label>
-     <Form.Control class="" type="text" name="ensurePoints" onChange={this.handleChange}/>
-     <br></br><br/>
-     <label>KEY POINTS:</label>
-     <Form.Control class="" type="text" name="keyPoints" onChange={this.handleChange}/>
-     <br></br><br/>
-     <label>DESCRIPTION:</label>
-     <textarea class="textarea" type="text" name="description" onChange={this.handleChange}/>
-     <br></br><br/>
-     <label>RESPONSE</label>
+     <TextField variant="standard" margin ="normal" fullWidth name="categoryId" onChange={this.handleChange}/>
+     <br/>
+     <label>Ensure Points:</label>
+     <TextField variant="standard" margin ="normal" fullWidth name="ensurePoints" onChange={this.handleChange}/>
+     <br/>
+     <label>Key Instructions:</label>
+     <TextField variant="standard" margin ="normal" fullWidth name="keyPoints" onChange={this.handleChange}/>
+     <br/>
+     <label>Description:</label>
+     <TextField  variant="standard" margin ="normal" fullWidth  type="text" name="description" onChange={this.handleChange}/>
+     <br/>
+     <label>Should one user fill the survey once only</label>
      <label>
-     <Switch name="singleResponseUser" onChange={this.handleResponse} checked={this.state.singleResponseUser}  />
+     <Switch name="singleResponseUser" onChange={this.handleResponse} checked={this.state.singleResponseUser}     
+    onColor="#bf8300"
+    onHandleColor="#ffff"
+    handleDiameter={20}
+    uncheckedIcon={false}
+    checkedIcon={false}
+    boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+    activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+    height={15}
+    width={45} />
      </label>  
-     <br></br>
-     <label>IPALLOWED </label>
+     <br/>
+     <span>Do you want to capture the IP address</span>
      <label>
-     <Switch name="isIpAllowed" onChange={this.handleIp} checked={this.state.isIpAllowed}  />
+     <Switch name="isIpAllowed" onChange={this.handleIp} checked={this.state.isIpAllowed}
+       onColor="#bf8300"
+       onHandleColor="#ffff"
+       handleDiameter={20}
+       uncheckedIcon={false}
+       checkedIcon={false}
+       boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+       activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+       height={15}
+       width={45}  />
      </label>  
-     <br/><br/>
-     <button class="button" align="right" type="submit">Submit</button>
+     <br/>
+     <Button variant="login_btn"  className="m-0 btn-block" align="right" type="submit">Submit</Button>
+     </Card.Body>
+     </form>
+     </Card>
      </div>
-     </fieldset>
-     </Form>
      </div>
     )}
 }

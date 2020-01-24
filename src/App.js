@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 import "./css/navbar.css";
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/Home";
@@ -14,10 +14,17 @@ import ResponseDetails from "./components/ResponseDetails";
 import SurveyRequest from "./components/SurveyRequest"
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import HomeIcon from '@material-ui/icons/Home';
-import SurveyGraph from "./components/SurveyGraph";
-import SurveyPage from "./components/SurveyPage"
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SignUpPage from "./components/SignUpPage";
+<<<<<<< HEAD
 import surveyQuestions from './components/surveyQuestions'
+=======
+import ShowUserDetail from "./components/ShowUserDetail";
+import ChartPage from "./components/ChartPage"
+import UserData from "./components/UserData"
+import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
+import SurveyStepper from "./components/SurveyStepper";
+>>>>>>> b1b56daf4a5bb750dc9a3225cd8a4bdbf8b47fac
 
 
 class App extends Component {
@@ -69,7 +76,7 @@ class App extends Component {
           fixed="top"
           className="menubar pt-0 pb-0 pr-0"
         >
-          <Navbar.Brand href="/home">SURVEYGLANCE</Navbar.Brand>
+          <Navbar.Brand href="/home" style={{marginLeft:"50px"}}>SURVEYGLANCE</Navbar.Brand>
           <br />
 
           <Navbar.Toggle />
@@ -77,13 +84,29 @@ class App extends Component {
             <Nav className="ml-auto">
               <Nav.Link href="/home"><HomeIcon/> Home </Nav.Link>
               <Nav.Link href="/dashboard"><DashboardIcon/> Dashboard</Nav.Link>
-              <Nav.Link href="/signup">SignUp</Nav.Link>
-                <Nav.Link href="/survey">Survey</Nav.Link>
             </Nav>
-
             <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
           </Navbar.Collapse>
          </Navbar>
+         <Drawer
+        variant="permanent"
+        open="true"  
+        anchor="left"  
+        containerStyle={{backgroundColor: 'black'}}        >
+        <Divider />
+        <List/>
+        <List/>
+        <List/>
+          <List>
+          <ListItemIcon><HomeIcon fontSize="large"/></ListItemIcon>
+        </List>
+        <List>
+        <ListItemIcon><DashboardIcon  fontSize="large"/></ListItemIcon>
+        </List>
+        <List>
+        <ListItemIcon><AccountCircleIcon fontSize="large"/></ListItemIcon>
+        </List>
+      </Drawer>
          </div>)};
 
     return (
@@ -99,10 +122,16 @@ class App extends Component {
           <Route exact path ="/response" component={ResponseTable}/>
           <Route exact path ="/responseDetails" component={ResponseDetails}/>
           <Route exact path ="/requests" component={SurveyRequest}/>
-          <Route exact path="/" component={LoginPage} />    )
+          <Route exact path="/" component={LoginPage} />    
           <Route exact path="/signup" component={SignUpPage}/>
+<<<<<<< HEAD
           <Route exact path="/survey" component={SurveyPage}/>
           <Route exact path="/Chart" component={surveyQuestions}/>
+=======
+          <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
+          <Route exact path="/chartpage" component={ChartPage}/>
+          <Route exact path="/survey" component={SurveyStepper}/>
+>>>>>>> b1b56daf4a5bb750dc9a3225cd8a4bdbf8b47fac
           </Router>
         </div>
     );

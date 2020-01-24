@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import {Link} from "react-router-dom"
 import {FaChartBar} from 'react-icons/fa'
+import AddIcon from '@material-ui/icons/Add';
 
 export class Home extends Component {
   constructor() {
@@ -60,6 +61,7 @@ export class Home extends Component {
               <Card>
                 <Card.Body>
                   <Card.Title>Total Surveys: {this.state.surveys.length}</Card.Title>
+                  <Link to ="/survey" style={{marginLeft:"90%"}}><AddIcon/>Create Survey</Link>
                   <Row>
                   {this.state.surveys.map(params =>{
                    return(
@@ -76,7 +78,6 @@ export class Home extends Component {
                       <Card.Title>{params.name}</Card.Title>
                       <Card.Text><Link to ={{pathname:"/requests", state:{surveyId:params.id}}  }>Show Requests</Link><br/>{params.description}<br/>
                    <label>Created On:</label>{"   "}{params.createdDt.slice(0,10)}<br/>
-                   {/* <Button>{params.status}</Button><br/> */}
                    <Link to = {{pathname:'/response',
                    state:{
                     survey:params
