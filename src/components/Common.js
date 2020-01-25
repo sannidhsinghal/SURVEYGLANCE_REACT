@@ -246,6 +246,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      <TextField variant="standard" margin ="normal" fullWidth  type="text" name="step_size" placeholder="step_size" />
      <br/>
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+
      </form> 
      </Card.Body>
      </Card>
