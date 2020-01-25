@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route,Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./css/navbar.css";
 import "./App.css"
 import { Navbar, Nav } from "react-bootstrap";
@@ -9,13 +9,13 @@ import LogoutPage from "./components/LogoutPage";
 import User from "./components/User";
 import UserData from './components/UserData.js'
 import Dashboard from "./components/Dashboard";
-import { FaPowerOff, FaSignInAlt} from "react-icons/fa";
+import { FaPowerOff, FaSignInAlt } from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
 import ResponseDetails from "./components/ResponseDetails";
-import SurveyRequest from "./components/SurveyRequest"
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import HomeIcon from '@material-ui/icons/Home';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import SurveyRequest from "./components/SurveyRequest";
+import DashboardIcon from "@material-ui/icons/Dashboard";
+import HomeIcon from "@material-ui/icons/Home";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SignUpPage from "./components/SignUpPage";
 import surveyQuestions from './components/surveyQuestions'
 import ShowUserDetail from "./components/ShowUserDetail";
@@ -23,7 +23,6 @@ import SurveyPage from "./components/SurveyPage";
 import ChartPage from "./components/ChartPage"
 import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
-
 
 class App extends Component {
   constructor() {
@@ -46,7 +45,9 @@ class App extends Component {
             href="/logout"
             className="loginBtn"
             location={this.props.location}
-             onClick={() =>{localStorage.removeItem('userId')}}
+            onClick={() => {
+              localStorage.removeItem("userId");
+            }}
           >
             {" "}
             <FaPowerOff /> Logout
@@ -65,52 +66,68 @@ class App extends Component {
       );
     }
 
-    if(localStorage.getItem("userId")){
-      navbar= (<div>
-        <Navbar
-          expand="lg"
-          variant="dark"
-          bg="dark"
-          fixed="top"
-          className="menubar pt-0 pb-0 pr-0"
-        >
-          <Navbar.Brand href="/home" style={{marginLeft:"50px"}}>SURVEYGLANCE</Navbar.Brand>
-          <br />
+    if (localStorage.getItem("userId")) {
+      navbar = (
+        <div>
+          <Navbar
+            expand="lg"
+            variant="dark"
+            bg="dark"
+            fixed="top"
+            className="menubar pt-0 pb-0 pr-0"
+          >
+            <Navbar.Brand href="/home" style={{ marginLeft: "50px" }}>
+              SURVEYGLANCE
+            </Navbar.Brand>
+            <br />
 
-          <Navbar.Toggle />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link href="/home"><HomeIcon/> Home </Nav.Link>
-              <Nav.Link href="/dashboard"><DashboardIcon/> Dashboard</Nav.Link>
-            </Nav>
-            <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
-          </Navbar.Collapse>
-         </Navbar>
-         <Drawer
-        variant="permanent"
-        open="true"  
-        anchor="left"  
-        containerStyle={{backgroundColor: 'black'}}        >
-        <Divider />
-        <List/>
-        <List/>
-        <List/>
-          <List>
-          <ListItemIcon><HomeIcon fontSize="large"/></ListItemIcon>
-        </List>
-        <List>
-        <ListItemIcon><DashboardIcon  fontSize="large"/></ListItemIcon>
-        </List>
-        <List>
-        <ListItemIcon><AccountCircleIcon fontSize="large"/></ListItemIcon>
-        </List>
-      </Drawer>
-         </div>)};
+            <Navbar.Toggle />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="ml-auto">
+                <Nav.Link href="/home">
+                  <HomeIcon /> Home{" "}
+                </Nav.Link>
+                <Nav.Link href="/dashboard">
+                  <DashboardIcon /> Dashboard
+                </Nav.Link>
+              </Nav>
+              <Nav className="mr-sm-0 login_part">{loggedNavBar}</Nav>
+            </Navbar.Collapse>
+          </Navbar>
+          <Drawer
+            variant="permanent"
+            open={true}
+            anchor="left"
+            containerStyle={{ backgroundColor: "black" }}
+          >
+            <Divider />
+            <List />
+            <List />
+            <List />
+            <List>
+              <ListItemIcon>
+                <HomeIcon fontSize="large" />
+              </ListItemIcon>
+            </List>
+            <List>
+              <ListItemIcon>
+                <DashboardIcon fontSize="large" />
+              </ListItemIcon>
+            </List>
+            <List>
+              <ListItemIcon>
+                <AccountCircleIcon fontSize="large" />
+              </ListItemIcon>
+            </List>
+          </Drawer>
+        </div>
+      );
+    }
 
     return (
       <div>
-      {navbar}
-      <Router>
+        {navbar}
+        <Router>
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/home" component={Home} />
