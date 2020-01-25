@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route,Link } from "react-router-dom";
 import "./css/navbar.css";
+import "./App.css"
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
@@ -18,8 +19,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import SignUpPage from "./components/SignUpPage";
 import surveyQuestions from './components/surveyQuestions'
 import ShowUserDetail from "./components/ShowUserDetail";
+import SurveyPage from "./components/SurveyPage";
 import ChartPage from "./components/ChartPage"
-import UserData from "./components/UserData"
 import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
 

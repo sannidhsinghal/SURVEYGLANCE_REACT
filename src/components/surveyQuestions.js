@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import axios from 'axios'
+import '../App.css'
 import {Bar} from 'react-chartjs-2'
 
 class surveyQuestions extends Component {
@@ -48,7 +49,7 @@ class surveyQuestions extends Component {
             
 
             return(
-                <div>
+                <div className="Survey">
                     <Bar
                         data={{
                             labels: SurveyDates,
@@ -59,9 +60,8 @@ class surveyQuestions extends Component {
                             data: SurveyId,
                                     }]
                              }}
-                             width ={300}
-                             height = {80}
-                             margin-top={30}
+                             width ={450}
+                             height = {100}
                     />
 
                     <Bar
@@ -74,11 +74,13 @@ class surveyQuestions extends Component {
                             data: Resp,
                                     }]
                              }}
-                             width ={300}
-                             height = {80}
+                             width ={450}
+                             height = {100}
+        
 
 
                     />
+
                 </div>
                     )
         }
