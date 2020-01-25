@@ -20,15 +20,7 @@ import ChartPage from "./components/ChartPage"
 import UserData from "./components/UserData"
 import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
-import BarCode from "./components/BarCode";
-import Date_Time from "./components/Date_Time";
-import Likart_Scale from "./components/Likart_Scale";
-import Location from "./components/Location";
-import MCQ from "./components/MCQ";
-import Media from "./components/Media"
-import Number from "./components/Number";
-import Scale from "./components/Scale";
-import SCQ from "./components/SCQ";
+
 
 
        class App extends Component {
@@ -128,15 +120,6 @@ import SCQ from "./components/SCQ";
           <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
           <Route exact path="/chartpage" component={ChartPage}/>
           <Route exact path="/survey" component={SurveyStepper}/>
-          <Route exact path="/barcode" component={BarCode}/>
-          <Route exact path="/date_time" component={Date_Time}/>
-          <Route exact path="/likart_scale" component={Likart_Scale}/>
-          <Route exact path="/location" component={Location}/>
-          <Route exact path="/mcq" component={MCQ}/>
-          <Route exact path="/media" component={Media}/>
-          <Route exact path="/number" component={Number}/>
-          <Route exact path="/scale" component={Scale}/>
-          <Route exact path="/scq" component={SCQ}/>
           </Router>
           </div>
     );

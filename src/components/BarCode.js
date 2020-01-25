@@ -5,6 +5,7 @@ import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
 import {Button} from "react-bootstrap"
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import { BarCode } from "./Common";
 
 
 
@@ -33,7 +34,7 @@ class BarCode extends React.Component{
            title: this.state.title,
            ref_tittle: this.state.ref_tittle,
            description:this.state.description,
-           mandatory : this.state.mandatory,
+           format:this.state.format,
            others : this.state.others
         }
     }
