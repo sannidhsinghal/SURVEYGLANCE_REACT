@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./css/navbar.css";
+import "./App.css"
 import { Navbar, Nav } from "react-bootstrap";
 import Home from "./components/Home";
 import LoginPage from "./components/LoginPage";
 import LogoutPage from "./components/LogoutPage";
 import User from "./components/User";
+import UserData from './components/UserData.js'
 import Dashboard from "./components/Dashboard";
 import { FaPowerOff, FaSignInAlt } from "react-icons/fa";
 import { ResponseTable } from "./components/ResponseTable";
@@ -15,10 +17,11 @@ import DashboardIcon from "@material-ui/icons/Dashboard";
 import HomeIcon from "@material-ui/icons/Home";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SignUpPage from "./components/SignUpPage";
+import surveyQuestions from './components/surveyQuestions'
 import ShowUserDetail from "./components/ShowUserDetail";
-import ChartPage from "./components/ChartPage";
-import UserData from "./components/UserData";
-import {Drawer,Divider,List,ListItemIcon,ListItemText} from "@material-ui/core";
+import SurveyPage from "./components/SurveyPage";
+import ChartPage from "./components/ChartPage"
+import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
 
 class App extends Component {
@@ -130,17 +133,19 @@ class App extends Component {
           <Route exact path="/home" component={Home} />
           <Route exact path="/logout" component={LogoutPage} />
           <Route exact path="/user" component={User} />
-          <Route exact path="/UserData" component={UserData} />
-          <Route exact path="/response" component={ResponseTable} />
-          <Route exact path="/responseDetails" component={ResponseDetails} />
-          <Route exact path="/requests" component={SurveyRequest} />
-          <Route exact path="/" component={LoginPage} />
-          <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/showuserdetail"component={ShowUserDetail}/>
-          <Route exact path="/chartpage" component={ChartPage} />
-          <Route exact path="/survey" component={SurveyStepper} />
-        </Router>
-      </div>
+          <Route exact path="/UserData" component={UserData}/>
+          <Route exact path ="/response" component={ResponseTable}/>
+          <Route exact path ="/responseDetails" component={ResponseDetails}/>
+          <Route exact path ="/requests" component={SurveyRequest}/>
+          <Route exact path="/" component={LoginPage} />    
+          <Route exact path="/signup" component={SignUpPage}/>
+          <Route exact path="/survey" component={SurveyPage}/>
+          <Route exact path="/Chart" component={surveyQuestions}/>
+          <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
+          <Route exact path="/chartpage" component={ChartPage}/>
+          <Route exact path="/survey" component={SurveyStepper}/>
+          </Router>
+        </div>
     );
   }
 }
