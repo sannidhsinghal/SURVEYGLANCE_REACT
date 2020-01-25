@@ -40,8 +40,7 @@ export class Home extends Component {
 
   render() {
 
-      if (!this.state.loading) {
-
+  if (!this.state.loading) {  
         if (this.state.surveys.length === 0) {
           return (
             <div>

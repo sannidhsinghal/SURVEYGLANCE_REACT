@@ -8,7 +8,11 @@ import FileUpload from "./FileUpload";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import {Spinner} from "react-bootstrap"
 import {Link} from "react-router-dom"
+<<<<<<< HEAD
+import {BarCode} from "./Common"
+=======
 import {uploadFile,uploadImage} from "./FileUpload"
+>>>>>>> e0842e8c953c0cded0486a6997085eb4d4492748
 
 class SurveyStepper extends Component {
   constructor() {
@@ -268,6 +272,7 @@ class SurveyStepper extends Component {
             <Button variant="login_btn" onClick={this.handleNext}>
               Next
             </Button>
+            {BarCode}
             </div>
             </center>
           </div>
