@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import { Stepper, Step, StepLabel, StepContent } from "@material-ui/core";
+import { Stepper, Step, StepLabel, StepContent, MenuItem } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Card, Button } from "react-bootstrap";
-import { dataPost } from "./GetData";
+import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
 import FileUpload from "./FileUpload";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import {Spinner} from "react-bootstrap"
 import {Link} from "react-router-dom"
+<<<<<<< HEAD
 import {BarCode} from "./Common"
+=======
+import {uploadFile,uploadImage} from "./FileUpload"
+>>>>>>> e0842e8c953c0cded0486a6997085eb4d4492748
 
 class SurveyStepper extends Component {
   constructor() {
@@ -24,7 +28,10 @@ class SurveyStepper extends Component {
       singleResponseUser: false,
       approvalRequired:false,
       activeStep: 0,
-      data:[]
+      data:[],
+      categories:[],
+      imagePath:"",
+      file:null
     };
     this.handleNext = this.handleNext.bind(this);
     this.handleBack = this.handleBack.bind(this);
@@ -33,6 +40,17 @@ class SurveyStepper extends Component {
     this.handleIp = this.handleIp.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
     this.handleApproval = this.handleApproval.bind(this);
+    this.handleFile = this.handleFile.bind(this);
+    this.setImage = this.setImage.bind(this)
+  }
+
+  componentDidMount(){
+    dataGet('/surveyCategory/getAllSurveyCategory')
+    .then(response=>{
+      this.setState({
+        categories:response
+      })
+    })
   }
 
   handleNext() {
@@ -75,7 +93,8 @@ class SurveyStepper extends Component {
       name: this.state.name,
       createdById:localStorage.getItem('userId'),
       singleResponseUser: this.state.singleResponseUser,
-      approvalRequired:this.state.approvalRequired
+      approvalRequired:this.state.approvalRequired,
+      imagePath:this.state.imagePath
     };
     console.log(survey)
     dataPost(`/survey/createSurvey`, survey).then(res => {
@@ -87,16 +106,19 @@ class SurveyStepper extends Component {
     });
   };
 
-  getStepLabel(params) {
-    switch (params) {
-      case 0:
-        return <StepLabel></StepLabel>;
-      case 1:
-        return <StepLabel>Add Questions</StepLabel>;
-      case 2:
-        return <StepLabel>Publish</StepLabel>;
-    }
+  handleFile(e) {
+    this.setState({file:e.target.files[0]})
   }
+
+  setImage(){
+  var url = uploadImage(this.state.file)
+  console.log(url)
+  this.setState({
+    imagePath:url
+  })
+  console.log(this.state.imagePath)
+  }
+
 
   getStepContent(params) {
     switch (params) {
@@ -126,11 +148,23 @@ class SurveyStepper extends Component {
             <label>Category: </label>
             <TextField
               variant="outlined"
+              select
               margin="normal"
               fullWidth
+              value={this.state.categoryId}
               name="categoryId"
               onChange={this.handleChange}
-            />
+              helperText="Please select a category"
+
+            >
+              {this.state.categories.map(category =>(
+               <MenuItem key={category.id} value={category.id}>
+                 {category.name}
+               </MenuItem>
+              ))}
+              
+              
+            </TextField>
             <br />
             <label>Ensure Points:</label>
             <TextField
@@ -164,6 +198,10 @@ class SurveyStepper extends Component {
               name="description"
               onChange={this.handleChange}
             />
+            <label>Upload banner for the survey(optional)</label>
+            <TextField variant="outlined" type="file" onChange={this.handleFile}/> 
+            <Button variant="login_btn" onClick={this.setImage}>Upload</Button>
+            <br/>
             <label>Should one user fill the survey once only</label>
             <Switch
               name="singleResponseUser"
@@ -225,12 +263,11 @@ class SurveyStepper extends Component {
         if(this.state.data.length!==0){
         return (
           <div>
-            <FileUpload
-            surveyId={this.state.data.id}
-            userId={this.state.data.createdById}
-            />
-            <center>
+          <center>  
+         <p> Please upload the excel containing the questions</p>   
             <div style={{marginTop:"200px"}}>  
+            <TextField type="file" onChange={this.handleFile}/>
+            <Button variant="login_btn" onClick={() =>uploadFile(this.state.file,this.state.data.id,this.state.data.createdById)}>Upload</Button>
             <Button variant="login_btn" onClick={this.handleBack}>Back</Button>
             <Button variant="login_btn" onClick={this.handleNext}>
               Next
@@ -256,7 +293,6 @@ class SurveyStepper extends Component {
       case 2:
         return (
           <div>
-            <p>Make Survey Live</p>
             <Button onClick={this.handleBack}>Back</Button>
             <Link to="/home"><Button>GO TO HOME SCREEN</Button></Link>
           </div>
@@ -267,14 +303,13 @@ class SurveyStepper extends Component {
   render() {
 
     var steps = ["Enter Basic Details", "Add Questions", "Publish"];
-
     return (
       <div style={{ marginTop: "30px" }}>
         <Card
           style={{
             justifyContent: "center",
             width: "80rem",
-            marginLeft: "80px"
+            marginLeft: "100px"
           }}
         >
           <Card.Body className="p-4">
