@@ -5,12 +5,14 @@ import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
 import {Button} from "react-bootstrap"
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+
     export function BarCode(){
         return(
             <div className="loginParent">
             <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
+             <h2>BarCode Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -28,12 +30,13 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
              </div>
              </div>
         )}
-    export function Date_Time(){
+       export function Date_Time(){
         return(
             <div className="loginParent">
             <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
+             <h2>Date_Time Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -54,12 +57,15 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
              </div>
              </div>
             )}
+
     export function Likart_Scale(){
         return(            
      <div className="loginParent">
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
+     <h2>
+     </h2>
      <form> 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -252,9 +258,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      </Card>
      </div>
      </div>)}
-    
-    
-    
+
     
     
 

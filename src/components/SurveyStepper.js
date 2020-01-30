@@ -1,23 +1,25 @@
 import React, { Component } from "react";
 import { Stepper, Step, StepLabel, StepContent, MenuItem } from "@material-ui/core";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Nav, Dropdown } from "react-bootstrap";
 import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
 import FileUpload from "./FileUpload";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import {Spinner} from "react-bootstrap"
-import {Link} from "react-router-dom"
-<<<<<<< HEAD
-import {BarCode} from "./Common"
-=======
+//import {Link} from "react-router-dom"
+//import {BarCode} from "./Common"
 import {uploadFile,uploadImage} from "./FileUpload"
->>>>>>> e0842e8c953c0cded0486a6997085eb4d4492748
+import {MCQ,Date_Time,SCQ,Likart_Scale, BarCode, Media} from './Common'
+import SignUpPage from "./SignUpPage";
+import Location from "./Location"
 
-class SurveyStepper extends Component {
-  constructor() {
+class SurveyStepper extends React.Component {
+  constructor(props) {
     super();
     this.state = {
+       a:"",
       baseLanguage: "",
       categoryId: 0,
       description: "",
@@ -41,7 +43,8 @@ class SurveyStepper extends Component {
     this.handleResponse = this.handleResponse.bind(this);
     this.handleApproval = this.handleApproval.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    this.setImage = this.setImage.bind(this)
+    this.setImage = this.setImage.bind(this);
+    //this.MCQ = this.MCQ.bind(this);
   }
 
   componentDidMount(){
@@ -94,7 +97,8 @@ class SurveyStepper extends Component {
       createdById:localStorage.getItem('userId'),
       singleResponseUser: this.state.singleResponseUser,
       approvalRequired:this.state.approvalRequired,
-      imagePath:this.state.imagePath
+      imagePath:this.state.imagePath,
+      param:this.state.param
     };
     console.log(survey)
     dataPost(`/survey/createSurvey`, survey).then(res => {
@@ -118,6 +122,61 @@ class SurveyStepper extends Component {
   })
   console.log(this.state.imagePath)
   }
+   //props = {MCQ,SCQ,Date_Time,Likart_Scale,BarCode,Location,Media};
+    
+
+
+ 
+
+  getFormContent(param){
+   /*<select   className="form-control" >
+    <option value="MCQ">MCQ</option>
+    <option value="SCQ">SCQ</option>
+    <option value="Date_Time">Date_Time</option>
+    <option value="Likart_Scale">Likart_Scale</option>
+    <option value="Media">Media</option>
+   </select>*/
+   console.log(this.param)
+        switch (param){
+         case MCQ:
+             return(
+               <div>{MCQ()}</div>
+             )
+             break;
+         case SCQ:
+             return(
+               <div>{SCQ()}</div>
+             )
+             break;
+         case Date_Time  :
+              return(
+                <div>{Date_Time()}</div>
+              )
+              break;
+         case Likart_Scale:
+              return(
+                <div>{Likart_Scale()}</div>
+              )
+              break;
+         case BarCode:
+                return(
+                  <div>{BarCode()}</div>
+                )
+                break;
+         case Location:
+                return(
+                  <div>{Location()}</div>
+                ) 
+                break;
+         case Media:
+              return(
+                <div>{Media()}</div>
+              ) 
+              break;   
+                                         
+        }
+        
+  } 
 
 
   getStepContent(params) {
@@ -155,7 +214,6 @@ class SurveyStepper extends Component {
               name="categoryId"
               onChange={this.handleChange}
               helperText="Please select a category"
-
             >
               {this.state.categories.map(category =>(
                <MenuItem key={category.id} value={category.id}>
@@ -260,7 +318,7 @@ class SurveyStepper extends Component {
 
       case 1:
         console.log(this.state.data)
-        if(this.state.data.length!==0){
+        // if(this.state.data.length!==0){
         return (
           <div>
           <center>  
@@ -272,23 +330,22 @@ class SurveyStepper extends Component {
             <Button variant="login_btn" onClick={this.handleNext}>
               Next
             </Button>
-            {BarCode}
             </div>
             </center>
           </div>
-        )}
-
-        else{
-          return(
-          <div
-          style={{ position: "fixed", top: "50%", left: "50%" }}
-          className="d-flex flex-column align-items-center justify-content-center"
-        >
-          <Spinner animation="grow" variant="warning">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        </div>
-          )}
+        )
+      // }
+        // else{
+        //   return(
+        //   <div
+        //   style={{ position: "fixed", top: "50%", left: "50%" }}
+        //   className="d-flex flex-column align-items-center justify-content-center"
+        // >
+        //   <Spinner animation="grow" variant="warning">
+        //     <span className="sr-only">Loading...</span>
+        //   </Spinner>
+        // </div>
+        //   )}
 
       case 2:
         return (
@@ -301,9 +358,23 @@ class SurveyStepper extends Component {
   }
 
   render() {
-
     var steps = ["Enter Basic Details", "Add Questions", "Publish"];
     return (
+
+     <div style={{marginTop:"100px"}}>
+
+      <form align="right" onSubmit={this.handleSubmit}>
+      <input type="text" name="param"
+        placeholder="Enter Value Here"
+        //onChange={data => this.setState({ param: data })}
+        onChange={this.handleChange}
+      />
+
+      <Button type="submit" onPress={this.getFormContent.bind(this, this.state.a)} activeOpacity={0.6}  >
+        select
+      </Button>
+
+      </form>
       <div style={{ marginTop: "30px" }}>
         <Card
           style={{
@@ -313,8 +384,8 @@ class SurveyStepper extends Component {
           }}
         >
           <Card.Body className="p-4">
-            <Stepper activeStep={this.state.activeStep}>
-              {steps.map(step => {
+          <Stepper activeStep={this.state.activeStep}>
+          {steps.map(step => {
                 return (
                   <Step>
                     <StepLabel>{step}</StepLabel>
@@ -324,7 +395,8 @@ class SurveyStepper extends Component {
             </Stepper>
             {this.getStepContent(this.state.activeStep)}
           </Card.Body>
-        </Card>
+        </Card>         
+      </div>
       </div>
       // </div>
     );
