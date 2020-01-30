@@ -33,9 +33,7 @@ export class LoginPage extends Component {
   handlePassword = event =>{
     this.setState({password : event.target.value})
   }
-
-
-
+  
   handleSubmit = event =>{
     event.preventDefault();
     const user ={

@@ -150,7 +150,7 @@ class Dashboard extends Component{
              <Chart  
               options={chartData.options}
               series={chartData.series}
-              type="bar"
+              type="line"
              />   
              </Card.Body>
              <center><b>No of surveys created</b></center>
