@@ -2,8 +2,6 @@ import React,{Component} from 'react'
 import axios from 'axios'
 import {dataGet} from '../GetData'
 
-
-
 class dynamicSurvey extends Component{
     constructor(){
         super();
@@ -21,39 +19,36 @@ class dynamicSurvey extends Component{
             })
     })
 }
-getValues(){
-    let Items=[]
-    Object.key(this.state.questions).map((key)=> 
-            <div>
-                <p>{JSON.parse(key.item)}</p>
-              
-                </div>  
-    )
-    Items.push(this.state.questions)
 
-}
    
 render(){
-    console.log(this.state.questions)
+
+    
+    (this.state.questions).map((k)=> 
+            <p>{JSON.parse(k.item)}</p>
+)
+
     
     return(
         <div  style={{marginLeft:"90px"}}>
-         {/* {this.state.questions.map(e=>{
-              const dyn=[]
-              dyn.push(e.item.title)
+         {this.state.questions.map(e=>{
               return(
                  <div> 
-                <p>{JSON.parse(e.item).title}</p> <br/>
-                {dyn.map((res, index) => {
-                return res;
-                }
-                )}
+              {Object.keys(JSON.parse(e.item)).map(
+                  key=>{
+                      return(
+                        <div>  
+                       <label>{key}</label>
+                        <input
+                        type="text">
+                            </input>
+                             </div>               )
+                  }
+              )}
                 </div>
               )
               })
-            } */}
-           
-           {this.state.questions}
+            }
            </div>
     )
     }
