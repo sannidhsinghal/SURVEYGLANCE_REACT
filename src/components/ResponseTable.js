@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import MUIDataTable from "mui-datatables";
 import {dataGet} from "./GetData";
 import {Redirect} from "react-router-dom"
-import SurveyGraph from './SurveyGraph';
+//import SurveyGraph from './SurveyGraph';
 
 
 export class ResponseTable extends Component{
@@ -87,7 +87,7 @@ export class ResponseTable extends Component{
         object.push(id,res.userId,res.data.length+"/"+this.props.location.state.survey.questionIdList.length)
 
         this.state.questionIds.forEach(questionId => {
-          const val =  res.data.filter(res=> res.questionId == questionId);
+          const val =  res.data.filter(res=> res.questionId === questionId);
           if(val.length>0){
             object.push(val[0].responseItem);
           }else{

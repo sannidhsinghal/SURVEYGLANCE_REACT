@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import { dataGet } from "./GetData";
-import { Button } from "react-bootstrap";
+//import { Button } from "react-bootstrap";
 import Figure from "react-bootstrap/Figure";
 import Spinner from "react-bootstrap/Spinner";
 import Row from "react-bootstrap/Row"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import {Link} from "react-router-dom"
-import {FaChartBar} from 'react-icons/fa'
+//import {FaChartBar} from 'react-icons/fa'
 import AddIcon from '@material-ui/icons/Add';
 
 export class Home extends Component {

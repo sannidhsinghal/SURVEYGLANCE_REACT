@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Form from 'react-bootstrap/Form'
-import axios from 'axios';
-import { dataPost } from "./GetData";
+//import Form from 'react-bootstrap/Form'
+//import axios from 'axios';
+//import { dataPost } from "./GetData";
 import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
 import {Button} from "react-bootstrap"
@@ -27,20 +27,15 @@ handleChange(event){
    [event.target.name] : event.target.value
   })
 }
-handleGender = event =>{
-    this.setState({
-        gender:event.target.value
-    })
-}
 handleSubmit = event => {
   event.preventDefault();
   const user = {
-    userName: this.state.userName,
-    fullName: this.state.fullName,
-    emailId: this.state.emailId,
-    password: this.state.password,
-    phoneNumber: this.state.phoneNumber,
-    gender: this.state.gender
+    title: this.state.title,
+    ref_title: this.state.ref_title,
+    description: this.state.description,
+    mandatory: this.state.mandatory,
+    settings: this.state.settings,
+    others: this.state.others
   };
 
 }
@@ -52,21 +47,17 @@ handleSubmit = event => {
      <Card.Body className="p-4">
      <form onSubmit={this.handleSubmit}> 
     <h2>SIGNUP </h2>
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="userName" placeholder="Username" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Username" onChange={this.handleChange}/>
      <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="fullName" placeholder="Full Name" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_title" placeholder="Full Name" onChange={this.handleChange}/>
      <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="email" name="emailId" placeholder="Email Id" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="email" name="description" placeholder="Email Id" onChange={this.handleChange}/>
      <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth  type="password" name="mandatory" placeholder="Password" onChange={this.handleChange}/>
      <br/>
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="phoneNumber" placeholder="Contact No." onChange={this.handleChange}/>
+     <TextField variant="standard" margin ="normal" fullWidth type="text" name="settings" placeholder="Contact No." onChange={this.handleChange}/>
      <br/>
-     <label>Gender</label><br/>
-        <input type="radio" name="gender" value="MALE" onChange={this.handleGender}/>
-        <label>MALE</label>
-       <input type="radio" name="gender" value = "FEMALE" onChange={this.handleGender}/>
-        <label>FEMALE</label>
+     <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Contact No." onChange={this.handleChange}/>
      <br/>
      <Button variant="login_btn" className="m-0 btn-block" type="submit"><PersonAddIcon/>SignUp</Button>
      </form> 

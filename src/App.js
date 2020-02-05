@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route,} from "react-router-dom";
 import "./css/navbar.css";
 import "./App.css"
 import { Navbar, Nav } from "react-bootstrap";
@@ -19,10 +19,12 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import SignUpPage from "./components/SignUpPage";
 import surveyQuestions from './components/surveyQuestions'
 import ShowUserDetail from "./components/ShowUserDetail";
-import SurveyPage from "./components/SurveyPage";
+//import SurveyPage from "./components/SurveyPage";
 import ChartPage from "./components/ChartPage"
-import { Drawer,Divider,List,ListItemIcon,ListItemText } from "@material-ui/core";
+import { Drawer,Divider,List,ListItemIcon} from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
+//import MyForm from "./components/MyForm";
+//import DynamicForm from "./components/DynamicForm";
 
 class App extends Component {
        constructor() {
@@ -82,8 +84,7 @@ class App extends Component {
           <Drawer
           variant="permanent"
           open="true"  
-          anchor="left"  
-          containerStyle={{backgroundColor: 'black'}}        >
+          anchor="left"          >
           <Divider />
           <List/>
           <List/>

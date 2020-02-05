@@ -1,25 +1,19 @@
-import React, { Component } from "react";
-import { Stepper, Step, StepLabel, StepContent, MenuItem } from "@material-ui/core";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
+import { Stepper, Step, StepLabel,MenuItem } from "@material-ui/core";
+import {Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
-import { Card, Button, Nav, Dropdown } from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
 import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
-import FileUpload from "./FileUpload";
-import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-import {Spinner} from "react-bootstrap"
-//import {Link} from "react-router-dom"
-//import {BarCode} from "./Common"
+//import FileUpload from "./FileUpload";
 import {uploadFile,uploadImage} from "./FileUpload"
-import {MCQ,Date_Time,SCQ,Likart_Scale, BarCode, Media} from './Common'
-import SignUpPage from "./SignUpPage";
-import Location from "./Location"
+import {MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale} from './Common'
 
 class SurveyStepper extends React.Component {
   constructor(props) {
     super();
     this.state = {
-       a:"",
+       param:"",
       baseLanguage: "",
       categoryId: 0,
       description: "",
@@ -44,9 +38,72 @@ class SurveyStepper extends React.Component {
     this.handleApproval = this.handleApproval.bind(this);
     this.handleFile = this.handleFile.bind(this);
     this.setImage = this.setImage.bind(this);
-    //this.MCQ = this.MCQ.bind(this);
   }
 
+  addDynamicComponent(param){
+
+    console.log(param)
+          switch (param){
+          
+              case 'MCQ':
+                   return(
+                     <div>{MCQ()}</div>
+                  )
+                  break;
+    
+               case 'SCQ':
+                      return(
+                        <div>{SCQ()}</div>
+                     ) 
+                  break;
+    
+               case 'Date_Time':
+                       return(
+                      <div>{Date_Time()}</div>
+                       )
+                break;
+    
+               case 'Likart_Scale':
+                     return(
+                  <div>{Likart_Scale()}</div>
+                     )
+                    break;
+    
+               case 'BarCode':
+                 return(
+                 <div>{BarCode()}</div>
+                 )
+                    break;
+    
+               case 'Location':
+                    return(
+                      
+                      <div>{Location()}</div>
+                   )
+                      break;
+    
+               case 'Media':
+                      return(
+    
+                      <div>{Media()}</div>
+                      )
+                  break;
+              
+               case 'Number':
+                   return(
+    
+                    <div> {Number()}</div>
+                   ) 
+                 break;   
+               case 'Scale':
+                     return(
+                       <div>{Scale()}</div>
+                     )
+                     break;                           
+              }  
+       } 
+
+  
   componentDidMount(){
     dataGet('/surveyCategory/getAllSurveyCategory')
     .then(response=>{
@@ -69,9 +126,11 @@ class SurveyStepper extends React.Component {
   }
 
   handleChange(event) {
+    console.log(event);
     this.setState({
       [event.target.name]: event.target.value
     });
+    console.log(this.state.param);
   }
   handleResponse(singleResponseUser) {
     this.setState({ singleResponseUser });
@@ -122,63 +181,7 @@ class SurveyStepper extends React.Component {
   })
   console.log(this.state.imagePath)
   }
-   //props = {MCQ,SCQ,Date_Time,Likart_Scale,BarCode,Location,Media};
-    
-
-
- 
-
-  getFormContent(param){
-   /*<select   className="form-control" >
-    <option value="MCQ">MCQ</option>
-    <option value="SCQ">SCQ</option>
-    <option value="Date_Time">Date_Time</option>
-    <option value="Likart_Scale">Likart_Scale</option>
-    <option value="Media">Media</option>
-   </select>*/
-   console.log(this.param)
-        switch (param){
-         case MCQ:
-             return(
-               <div>{MCQ()}</div>
-             )
-             break;
-         case SCQ:
-             return(
-               <div>{SCQ()}</div>
-             )
-             break;
-         case Date_Time  :
-              return(
-                <div>{Date_Time()}</div>
-              )
-              break;
-         case Likart_Scale:
-              return(
-                <div>{Likart_Scale()}</div>
-              )
-              break;
-         case BarCode:
-                return(
-                  <div>{BarCode()}</div>
-                )
-                break;
-         case Location:
-                return(
-                  <div>{Location()}</div>
-                ) 
-                break;
-         case Media:
-              return(
-                <div>{Media()}</div>
-              ) 
-              break;   
-                                         
-        }
-        
-  } 
-
-
+   
   getStepContent(params) {
     switch (params) {
       case 0:
@@ -318,7 +321,6 @@ class SurveyStepper extends React.Component {
 
       case 1:
         console.log(this.state.data)
-        // if(this.state.data.length!==0){
         return (
           <div>
           <center>  
@@ -334,18 +336,7 @@ class SurveyStepper extends React.Component {
             </center>
           </div>
         )
-      // }
-        // else{
-        //   return(
-        //   <div
-        //   style={{ position: "fixed", top: "50%", left: "50%" }}
-        //   className="d-flex flex-column align-items-center justify-content-center"
-        // >
-        //   <Spinner animation="grow" variant="warning">
-        //     <span className="sr-only">Loading...</span>
-        //   </Spinner>
-        // </div>
-        //   )}
+
 
       case 2:
         return (
@@ -363,18 +354,28 @@ class SurveyStepper extends React.Component {
 
      <div style={{marginTop:"100px"}}>
 
-      <form align="right" onSubmit={this.handleSubmit}>
-      <input type="text" name="param"
-        placeholder="Enter Value Here"
-        //onChange={data => this.setState({ param: data })}
-        onChange={this.handleChange}
-      />
+     <form align="center">
+     <input type="text" name="param"
+       placeholder="Enter Value Here"
+       onChange={this.handleChange}
+     />
+     <Button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>
+       Select
+     </Button>
+    </form>
+  {/* <form>
+          <input type="radio" name="param" value="MCQ" onChange={this.handleForm}/>
+          <label>MCQ</label>
+          <input type="radio" name="param" value="SCQ" onChange={this.handleForm}/>
+          <label>SCQ</label>
+          <input type="radio" name="param" value="BarCode" onChange={this.handleForm}/>
+          <label>BarCode</label>
+          <input type="radio" name="param" value="Number" onChange={this.handleForm}/>
+          <label>Number</label>
 
-      <Button type="submit" onPress={this.getFormContent.bind(this, this.state.a)} activeOpacity={0.6}  >
-        select
-      </Button>
+  </form>*/}
+   {this.addDynamicComponent(this.state.param)}
 
-      </form>
       <div style={{ marginTop: "30px" }}>
         <Card
           style={{
@@ -397,6 +398,7 @@ class SurveyStepper extends React.Component {
           </Card.Body>
         </Card>         
       </div>
+
       </div>
       // </div>
     );

@@ -1,6 +1,5 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
 import { dataGet } from "./GetData";
 import Row from 'react-bootstrap/Row'
 import Card from 'react-bootstrap/Card'

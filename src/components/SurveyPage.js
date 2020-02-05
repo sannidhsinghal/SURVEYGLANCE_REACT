@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form'
-import axios from 'axios';
-import { Input } from 'reactstrap';
+//import Form from 'react-bootstrap/Form'
+//import axios from 'axios';
+//import { Input } from 'reactstrap';
 import Switch from "react-switch";
 import { dataPost } from "./GetData";
 import {TextField} from '@material-ui/core'

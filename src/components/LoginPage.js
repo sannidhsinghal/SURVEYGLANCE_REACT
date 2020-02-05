@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+//import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
 import {FaSignInAlt } from 'react-icons/fa';
 import { dataPost } from "./GetData";
 import {Redirect} from 'react-router-dom'
 import {TextField} from '@material-ui/core'
-import { LinearProgress } from '@material-ui/core';
-import { Alert,AlertTitle } from '@material-ui/lab';
+//import { LinearProgress } from '@material-ui/core';
+//import { Alert,AlertTitle } from '@material-ui/lab';
 
 
 export class LoginPage extends Component {
