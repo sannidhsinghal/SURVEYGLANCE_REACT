@@ -5,9 +5,16 @@ import { TextField } from "@material-ui/core";
 import { Card, Button} from "react-bootstrap";
 import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
-//import FileUpload from "./FileUpload";
+
+import InputLabel from '@material-ui/core/InputLabel';
+//import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+
 import {uploadFile,uploadImage} from "./FileUpload"
-import {MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale} from './Common'
+import {Text,Signature,MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale,Email,File_Upload,Rating} from './Common'
+import MyForm from "./MyForm";
+
 
 class SurveyStepper extends React.Component {
   constructor(props) {
@@ -39,12 +46,42 @@ class SurveyStepper extends React.Component {
     this.handleFile = this.handleFile.bind(this);
     this.setImage = this.setImage.bind(this);
   }
-
-  addDynamicComponent(param){
+  
+    /* addDynamicComponent(param){
 
     console.log(param)
           switch (param){
-          
+
+            case 'Email':
+              return(
+                <div>{Email()}</div>
+             )
+             break;
+
+             case 'Text':
+              return(
+                <div>{Text()}</div>
+             )
+             break;
+
+             case 'Signature':
+              return(
+                <div>{Signature()}</div>
+             )
+             break;
+
+             case 'File_Upload':
+              return(
+                <div>{File_Upload()}</div>
+             )
+             break;
+
+             case 'Rating':
+              return(
+                <div>{Rating()}</div>
+             )
+             break;
+
               case 'MCQ':
                    return(
                      <div>{MCQ()}</div>
@@ -101,7 +138,7 @@ class SurveyStepper extends React.Component {
                      )
                      break;                           
               }  
-       } 
+       }*/
 
   
   componentDidMount(){
@@ -323,6 +360,7 @@ class SurveyStepper extends React.Component {
         console.log(this.state.data)
         return (
           <div>
+         
           <center>  
          <p> Please upload the excel containing the questions</p>   
             <div style={{marginTop:"200px"}}>  
@@ -334,6 +372,7 @@ class SurveyStepper extends React.Component {
             </Button>
             </div>
             </center>
+            
           </div>
         )
 
@@ -352,8 +391,11 @@ class SurveyStepper extends React.Component {
     var steps = ["Enter Basic Details", "Add Questions", "Publish"];
     return (
 
-     <div style={{marginTop:"100px"}}>
+    <div>
 
+     {/*<div style={{marginTop:"100px"}}>
+   
+     
      <form align="center">
      <input type="text" name="param"
        placeholder="Enter Value Here"
@@ -362,19 +404,8 @@ class SurveyStepper extends React.Component {
      <Button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>
        Select
      </Button>
-    </form>
-  {/* <form>
-          <input type="radio" name="param" value="MCQ" onChange={this.handleForm}/>
-          <label>MCQ</label>
-          <input type="radio" name="param" value="SCQ" onChange={this.handleForm}/>
-          <label>SCQ</label>
-          <input type="radio" name="param" value="BarCode" onChange={this.handleForm}/>
-          <label>BarCode</label>
-          <input type="radio" name="param" value="Number" onChange={this.handleForm}/>
-          <label>Number</label>
+    </form>*/}
 
-  </form>*/}
-   {this.addDynamicComponent(this.state.param)}
 
       <div style={{ marginTop: "30px" }}>
         <Card
@@ -394,7 +425,20 @@ class SurveyStepper extends React.Component {
                 );
               })}
             </Stepper>
+            <MyForm/>
             {this.getStepContent(this.state.activeStep)}
+           {/* <form align="center">
+            <input type="text" name="param"
+              placeholder="Enter Value Here"
+              onChange={this.handleChange}
+            >
+
+            </input>
+            <Button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>
+              Select
+            </Button>
+           </form>
+            {this.addDynamicComponent(this.state.param)}*/}
           </Card.Body>
         </Card>         
       </div>

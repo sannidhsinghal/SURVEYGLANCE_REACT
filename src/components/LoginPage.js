@@ -50,11 +50,11 @@ export class LoginPage extends Component {
         localStorage.setItem('userId',response.id)
       }
     })
-    .catch(error => {
-      this.setState({
-        error:error.response.data.message
-  });
-  })
+    //.catch(error => {
+      //this.setState({
+        //error:error.response.data.message
+ // });
+ // })
 }
   
    

@@ -2,13 +2,122 @@ import React from "react";
 import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
 
-    export function BarCode(){
+export function Text(){
+    return(
+         <div className="col-sm-4">
+         <Card style={{ display:'flex', justifyContent:'center' }}>
+         <Card.Body className="p-4">
+         
+         <form> 
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+         <br/>
+         </form> 
+         </Card.Body>
+         </Card>
+         </div>
+    )}
+
+export function Signature(){
+    return(
+         <div className="col-sm-4">
+         <Card style={{ display:'flex', justifyContent:'center' }}>
+         <Card.Body className="p-4">
+    
+         <form> 
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+         <br/>
+         </form> 
+         </Card.Body>
+         </Card>
+         </div>
+    )}
+export function Rating(){
+    return(
+         <div className="col-sm-4">
+         <Card style={{ display:'flex', justifyContent:'center' }}>
+         <Card.Body className="p-4">
+
+         <form> 
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+         <br/>
+         </form> 
+         </Card.Body>
+         </Card>
+         </div>
+    )}
+export function File_Upload(){
+    return(
+         <div className="col-sm-4">
+         <Card style={{ display:'flex', justifyContent:'center' }}>
+         <Card.Body className="p-4">
+         <form> 
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+         <br/>
+         </form> 
+         </Card.Body>
+         </Card>
+         </div>
+    )}
+  
+export function Email(){
+    return(
+         <div className="col-sm-4">
+         <Card style={{ display:'flex', justifyContent:'center' }}>
+         <Card.Body className="p-4">
+         <form> 
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+         <br/>
+         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+         <br/>
+         </form> 
+         </Card.Body>
+         </Card>
+         </div>
+         
+    )}
+       export function BarCode(){
         return(
-             <div className="loginParent">
              <div className="col-sm-4">
-             <Card style={{ display:'flex', justifyContent:'center' }}>
+             <Card style={{ display:'flex', justifyContent:'center' }} align="right">
              <Card.Body className="p-4">
-             <h2>BarCode Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -24,15 +133,13 @@ import {Card} from "react-bootstrap"
              </Card.Body>
              </Card>
              </div>
-             </div>
+            
         )}
        export function Date_Time(){
         return(
-             <div className="loginParent">
              <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
-             <h2>Date_Time Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -51,16 +158,14 @@ import {Card} from "react-bootstrap"
              </Card.Body>
              </Card>
              </div>
-             </div>
+    
             )}
 
     export function Likart_Scale(){
         return(            
-             <div className="loginParent">
              <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
-             <h3>Likart_Scale Form</h3>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -80,16 +185,13 @@ import {Card} from "react-bootstrap"
              </form> 
              </Card.Body>
              </Card>
-             </div>
              </div>)}
 
     export function Location(){
         return(           
-             <div className="loginParent">
              <div className="col-sm-4">
-             <Card style={{ display:'flex', justifyContent:'center' }}>
+             <Card style={{ display:'flex', justifyContent:'center' }} align="right">
              <Card.Body className="p-4">
-             <h3>Location Form</h3>
              <form > 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -105,27 +207,24 @@ import {Card} from "react-bootstrap"
              </form> 
              </Card.Body>
              </Card>
-             </div>
              </div>)}
 
     export function MCQ(){
         return( 
-            <div className="loginParent">
-          <div className="col-sm-4">
-          <Card style={{ display:'flex', justifyContent:'center' }}>
-          <Card.Body className="p-4">
-          <h3>MCQ Form</h3>
-     <form> 
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
-     <br/>
+             <div className="col-sm-4">
+             <Card style={{ display:'flex', justifyContent:'center' }}>
+             <Card.Body className="p-4">
+             <form> 
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
+             <br/>
      <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option2" placeholder="option2" />
      <br/>
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="option3" placeholder="option3" />
@@ -147,15 +246,14 @@ import {Card} from "react-bootstrap"
      </Card.Body>
      </Card>
      </div>
-     </div>)}
+        )}
 
     export function SCQ(){
         return(
-     <div className="loginParent">
+
      <div className="col-sm-4">
-     <Card style={{ display:'flex', justifyContent:'center' }}>
+     <Card style={{ display:'flex', justifyContent:'center' }} align="right">
      <Card.Body className="p-4">
-     <h3>SCQ Form</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -171,16 +269,13 @@ import {Card} from "react-bootstrap"
      </form> 
      </Card.Body>
      </Card>
-     </div>
      </div>)}
 
     export function Media(){
         return(            
-     <div className="loginParent">
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h3>Media</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -196,16 +291,13 @@ import {Card} from "react-bootstrap"
      </form> 
      </Card.Body>
      </Card>
-     </div>
      </div>)}
 
     export function Number(){
         return(           
-     <div className="loginParent">
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h3>Number Form</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?"/>
      <br/>
@@ -223,16 +315,13 @@ import {Card} from "react-bootstrap"
      </form> 
      </Card.Body>
      </Card>
-     </div>
      </div>)}
 
     export function Scale(){
         return(
-     <div className="loginParent">
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h3>Scale Form</h3>
      <form> 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -253,7 +342,6 @@ import {Card} from "react-bootstrap"
      </form> 
      </Card.Body>
      </Card>
-     </div>
      </div>)}
 
     

@@ -1,339 +1,103 @@
 import React from "react";
-//import Form from 'react-bootstrap/Form'
-//import axios from 'axios';
-import {TextField} from "@material-ui/core"
-import {Card} from "react-bootstrap"
-//import {Button} from "react-bootstrap"
-//import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import {View,TextInput,TouchableOpacity,Text} from 'react'
-
+import {Text,Signature,MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale,Email,File_Upload,Rating} from './Common'
 class MyForm extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            param:''
-        }
-    }
 
-getFormContent(param){
-    console.log(this.param)
-         switch (param){
+     constructor(){
+       super()
+       this.state={
+         param:""
+       }
+       this.handleChange = this.handleChange.bind(this);
+       this.handleSubmit = this.handleSubmit.bind(this);
+       this.addDynamicComponent  = this.addDynamicComponent.bind(this);
+     }
 
-          case 'MCQ':
-                this.MCQ()
-              break;
+     addDynamicComponent(param) {
+          console.log(param)
+          if (this.state.param == 'MCQ') {
+                return(
+                  <div>{MCQ()}</div>
+                )
+          }
+          if (param == 'SCQ') {
+            return(
+              <div>{SCQ()}</div>
+            )
+          }
+          if (param == 'Media') {
+            return(
+              <div>{Media()}</div>
+            )
+          }
 
-          case 'SCQ':
-                   this.SCQ()
-              break;
+          if (param == 'BarCode') {
+            return(
+              <div>{BarCode()}</div>
+            )
+          }
 
-          case 'Date_Time':
-                 this.Date_Time()
-               break;
+          if (param == 'Likart_Scale') {
+            return(
+              <div>{Likart_Scale()}</div>
+            )
+          }
 
-          case 'Likart_Scale':
-               this.Likart_Scale()
-               break;
-
-          case 'BarCode':
-            this.BarCode()
-                 break;
-
-          case 'Location':
-                   this.Location()
-                 break;
-
-          case 'Media':
-                 this.Media()
-             break;
-                                          
-         }
-         
-   } 
-
-   Location=()=>{
-    return(           
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <form > 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="settings" placeholder="location_settings" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
- MCQ=()=>{
-    return( 
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <form> 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option2" placeholder="option2" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="option3" placeholder="option3" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option4" placeholder="option4" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="option5" placeholder="option5" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="all_of_the_above" placeholder="all_of_the_above" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="none_of_the_above" placeholder="none_of_the_above" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="select_min_options" placeholder="select_min_options" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="select_max_options" placeholder="select_max_options" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
-  SCQ=()=>{
-    return(
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <h2>SCQ Form</h2>
- <form > 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option" placeholder="option" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
-    Media=()=>{
-    return(            
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <h2>Media</h2>
- <form > 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="type" placeholder="DATE|TIME|DATE-TIME" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
-  Number=()=>{
-    return(           
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <h2>Number Form</h2>
- <form > 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?"/>
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="lower_limit" placeholder="lower_limit" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="upper_limit" placeholder="upper_limit" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
-Scale=()=>{
-    return(
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <h2>Scale Form</h2>
- <form> 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="min_value" placeholder="min_value" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="max_value" placeholder="max_value" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="step_size" placeholder="step_size" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
-
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
-
-
-
-
-
-
-
-
-
-
-   BarCode=()=>{
-    return(
-         <div className="loginParent">
-         <div className="col-sm-4">
-         <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
-         <h2>BarCode Form</h2>
-         <form> 
-         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
-         <br/>
-         </form> 
-         </Card.Body>
-         </Card>
-         </div>
-         </div>
-    )}
-    Date_Time=()=>{
-    return(
-        <div className="loginParent">
-        <div className="col-sm-4">
-         <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
-         <h2>Date_Time Form</h2>
-         <form> 
-         <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="type" placeholder="DATE|TIME|DATE-TIME" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth  type="text" name="format" placeholder="dd/mm/yy" />
-         <br/>
-         <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
-         </form> 
-         </Card.Body>
-         </Card>
-         </div>
-         </div>
-        )}
-
-        Likart_Scale = () => {
-    return(            
- <div className="loginParent">
- <div className="col-sm-4">
- <Card style={{ display:'flex', justifyContent:'center' }}>
- <Card.Body className="p-4">
- <h2>
- </h2>
- <form> 
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option2" placeholder="option2" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="option3" placeholder="option3" />
- <br/>
- <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
- </form> 
- </Card.Body>
- </Card>
- </div>
- </div>)}
-
- render(){
+          if (param == 'Email') {
+            return(
+              <div>{Email()}</div>
+            )
+          }
+          if (param == 'Date_Time') {
+            return(
+              <div>{Date_Time()}</div>
+            )
+          }
+          if (param == 'Rating') {
+            return(
+              <div>{Rating()}</div>
+            )
+          }
+          if (param == 'File_Upload') {
+            return(
+              <div>{File_Upload()}</div>
+            )
+          }
+      }
+           
+             handleChange(event) {
+              console.log(event);
+              this.setState({
+                [event.target.name]: event.target.value
+              });
+              console.log(this.state.param);
+            }
+            handleSubmit = event => {
+              event.preventDefault();
+              const user = {
+                param: this.state.param,
+              };
+            }
+   render(){
      return(
-        <View >
-
-        <TextInput
-          placeholder="Enter Value Here"
-          onChangeText={data => this.setState({ param: data })}
-        />
-
-        <TouchableOpacity onPress={this.getFormContent.bind(this, this.state.getFormContent)} activeOpacity={0.6} >
- 
-          <Text > GET RESULT </Text>
-
-        </TouchableOpacity>
-
-      </View>
-
-     )
- }
-    
+       <div>
+       <form>
+       <select name="param" onChange={this.handleChange}>
+       <option>MCQ</option>
+       <option >SCQ</option>
+       <option >Media</option>
+       <option >BarCode</option>
+       <option>Likart_Scale</option>
+       <option >Rating</option>
+       <option >Email</option>
+       <option >Date_Time</option>
+       <option >File_Upload</option>
+       
+       </select>
+   <button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>Export Chart</button>
+   </form>
+   {this.addDynamicComponent(this.state.param)}
+       </div>
+     );
+   }
 }
-export default Location
-//export defult MyForm;
+export default MyForm;
