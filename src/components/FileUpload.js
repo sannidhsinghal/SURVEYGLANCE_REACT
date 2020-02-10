@@ -30,11 +30,4 @@ export async function uploadImage(file){
         );
       }
 
-    // async onSubmit(e){
-    //     e.preventDefault() 
-    //     let res = await this.uploadFile(this.state.file);
-    //     console.log(res.data);
-    // }
-    // onChange(e) {
-    //     this.setState({file:e.target.files[0]})
-    // }
+

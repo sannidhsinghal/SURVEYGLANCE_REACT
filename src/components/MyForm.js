@@ -1,6 +1,6 @@
 import React from "react";
 import {Text,Signature,MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale,Email,File_Upload,Rating} from './Common'
-class MyForm extends React.Component{
+class AddQuestion extends React.Component{
 
      constructor(){
        super()
@@ -81,6 +81,7 @@ class MyForm extends React.Component{
      return(
        <div>
        <form>
+       <b>Please select the type of question</b>  
        <select name="param" onChange={this.handleChange}>
        <option>MCQ</option>
        <option >SCQ</option>
@@ -93,11 +94,10 @@ class MyForm extends React.Component{
        <option >File_Upload</option>
        
        </select>
-   <button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>Export Chart</button>
    </form>
    {this.addDynamicComponent(this.state.param)}
        </div>
      );
    }
 }
-export default MyForm;
+export default AddQuestion;

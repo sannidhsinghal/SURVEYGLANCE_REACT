@@ -4,9 +4,9 @@ import {Card} from "react-bootstrap"
 
 export function Text(){
     return(
-         <div className="col-sm-4">
+         <div>
          <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
+         <Card.Body>
          
          <form> 
          <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
@@ -27,9 +27,9 @@ export function Text(){
 
 export function Signature(){
     return(
-         <div className="col-sm-4">
+         <div>
          <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
+         <Card.Body>
     
          <form> 
          <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
@@ -49,9 +49,9 @@ export function Signature(){
     )}
 export function Rating(){
     return(
-         <div className="col-sm-4">
+         <div>
          <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
+         <Card.Body  >
 
          <form> 
          <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
@@ -71,9 +71,9 @@ export function Rating(){
     )}
 export function File_Upload(){
     return(
-         <div className="col-sm-4">
+         <div>
          <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
+         <Card.Body  >
          <form> 
          <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
          <br/>
@@ -93,9 +93,9 @@ export function File_Upload(){
   
 export function Email(){
     return(
-         <div className="col-sm-4">
+         <div >
          <Card style={{ display:'flex', justifyContent:'center' }}>
-         <Card.Body className="p-4">
+         <Card.Body>
          <form> 
          <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
          <br/>
@@ -115,9 +115,9 @@ export function Email(){
     )}
        export function BarCode(){
         return(
-             <div className="col-sm-4">
+             <div >
              <Card style={{ display:'flex', justifyContent:'center' }} align="right">
-             <Card.Body className="p-4">
+             <Card.Body  >
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -137,9 +137,9 @@ export function Email(){
         )}
        export function Date_Time(){
         return(
-             <div className="col-sm-4">
+             <div >
              <Card style={{ display:'flex', justifyContent:'center' }}>
-             <Card.Body className="p-4">
+             <Card.Body  >
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -163,9 +163,9 @@ export function Email(){
 
     export function Likart_Scale(){
         return(            
-             <div className="col-sm-4">
+             <div >
              <Card style={{ display:'flex', justifyContent:'center' }}>
-             <Card.Body className="p-4">
+             <Card.Body  >
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -189,9 +189,9 @@ export function Email(){
 
     export function Location(){
         return(           
-             <div className="col-sm-4">
+             <div >
              <Card style={{ display:'flex', justifyContent:'center' }} align="right">
-             <Card.Body className="p-4">
+             <Card.Body  >
              <form > 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -211,9 +211,9 @@ export function Email(){
 
     export function MCQ(){
         return( 
-             <div className="col-sm-4">
+             <div >
              <Card style={{ display:'flex', justifyContent:'center' }}>
-             <Card.Body className="p-4">
+             <Card.Body  >
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -251,9 +251,9 @@ export function Email(){
     export function SCQ(){
         return(
 
-     <div className="col-sm-4">
+     <div >
      <Card style={{ display:'flex', justifyContent:'center' }} align="right">
-     <Card.Body className="p-4">
+     <Card.Body  >
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -273,9 +273,9 @@ export function Email(){
 
     export function Media(){
         return(            
-     <div className="col-sm-4">
+     <div >
      <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
+     <Card.Body  >
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -295,9 +295,9 @@ export function Email(){
 
     export function Number(){
         return(           
-     <div className="col-sm-4">
+     <div >
      <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
+     <Card.Body  >
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?"/>
      <br/>
@@ -319,9 +319,9 @@ export function Email(){
 
     export function Scale(){
         return(
-     <div className="col-sm-4">
+     <div >
      <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
+     <Card.Body>
      <form> 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
