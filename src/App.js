@@ -119,7 +119,6 @@ class App extends Component {
           <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
           <Route exact path="/chartpage" component={ChartPage}/>
           <Route exact path="/survey" component={SurveyStepper}/>
-          <Route exact path="/myform" component={MyForm}/>
           </Router>
           </div>
     );
