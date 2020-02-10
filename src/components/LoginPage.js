@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+//import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
 import {FaSignInAlt } from 'react-icons/fa';
 import { dataPost } from "./GetData";
 import {Redirect} from 'react-router-dom'
 import {TextField} from '@material-ui/core'
-import { LinearProgress } from '@material-ui/core';
-import { Alert,AlertTitle } from '@material-ui/lab';
+//import { LinearProgress } from '@material-ui/core';
+//import { Alert,AlertTitle } from '@material-ui/lab';
 
 
 export class LoginPage extends Component {
@@ -83,29 +83,29 @@ export class LoginPage extends Component {
   // }
 
 
-        return (
+        return(
             <div className="loginParent">
-              {alertBox}
+            {alertBox}
             <div className="col-sm-4">
             <Card style={{ display:'flex', justifyContent:'center' }}>
-                     <Card.Body className="p-4">  
-                    <form  onSubmit ={this.handleSubmit}>
-                        <div className="">
-                         </div>
-                          <h3 className="text-center mb-3">LOGIN</h3>
-                            <div className ="fields">
-                              <p className="text-danger">{this.state.error}</p>
-                               <TextField variant="standard" margin ="normal" fullWidth placeholder = "Username" onChange= {this.handleChange}/>
-                              <br/>
-                                <TextField variant="standard" type = "password" margin="normal" fullWidth placeholder="Password"onChange= {this.handlePassword}/>
-                              <br/>
-                              <Button variant="login_btn" type = "submit" className="m-0 btn-block "><FaSignInAlt/> Login</Button>
-                         </div>
-                     </form>
-                    </Card.Body>
-                    </Card>            
-                    </div>
-                    </div>
+            <Card.Body className="p-4">  
+            <form  onSubmit ={this.handleSubmit}>
+            <div className="">
+            </div>
+            <h3 className="text-center mb-3">LOGIN</h3>
+            <div className ="fields">
+            <p className="text-danger">{this.state.error}</p>
+            <TextField variant="standard" margin ="normal" fullWidth placeholder = "Username" onChange= {this.handleChange}/>
+            <br/>
+            <TextField variant="standard" type = "password" margin="normal" fullWidth placeholder="Password"onChange= {this.handlePassword}/>
+            <br/>
+            <Button variant="login_btn" type = "submit" className="m-0 btn-block "><FaSignInAlt/> Login</Button>
+            </div>
+            </form>
+            </Card.Body>
+            </Card>            
+            </div>
+            </div>
         )
      
   }

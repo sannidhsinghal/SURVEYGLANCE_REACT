@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route,} from "react-router-dom";
 import "./css/navbar.css";
 import "./App.css";
 import { Navbar, Nav } from "react-bootstrap";
@@ -23,6 +23,8 @@ import SurveyPage from "./components/SurveyPage";
 import ChartPage from "./components/ChartPage";
 import {Drawer,Divider,List,ListItemIcon} from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
+//import MyForm from "./components/MyForm";
+//import DynamicForm from "./components/DynamicForm";
 
 class App extends Component {
   constructor() {
@@ -139,7 +141,6 @@ class App extends Component {
           <Route exact path="/requests" component={SurveyRequest} />
           <Route exact path="/" component={LoginPage} />
           <Route exact path="/signup" component={SignUpPage} />
-          <Route exact path="/survey" component={SurveyPage} />
           <Route exact path="/Chart" component={surveyQuestions} />
           <Route
             exact

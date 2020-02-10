@@ -1,23 +1,19 @@
-import React, { Component } from "react";
-import { Stepper, Step, StepLabel, StepContent, MenuItem } from "@material-ui/core";
+import React from "react";
+import { Stepper, Step, StepLabel,MenuItem } from "@material-ui/core";
+import {Link } from "react-router-dom";
 import { TextField } from "@material-ui/core";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
 import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
-import FileUpload from "./FileUpload";
-import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-import {Spinner} from "react-bootstrap"
-import {Link} from "react-router-dom"
-<<<<<<< HEAD
-import {BarCode} from "./Common"
-=======
+//import FileUpload from "./FileUpload";
 import {uploadFile,uploadImage} from "./FileUpload"
->>>>>>> e0842e8c953c0cded0486a6997085eb4d4492748
+import {MCQ,Date_Time,SCQ,Likart_Scale, BarCode,Location,Number,Media,Scale} from './Common'
 
-class SurveyStepper extends Component {
-  constructor() {
+class SurveyStepper extends React.Component {
+  constructor(props) {
     super();
     this.state = {
+       param:"",
       baseLanguage: "",
       categoryId: 0,
       description: "",
@@ -41,9 +37,73 @@ class SurveyStepper extends Component {
     this.handleResponse = this.handleResponse.bind(this);
     this.handleApproval = this.handleApproval.bind(this);
     this.handleFile = this.handleFile.bind(this);
-    this.setImage = this.setImage.bind(this)
+    this.setImage = this.setImage.bind(this);
   }
 
+  addDynamicComponent(param){
+
+    console.log(param)
+          switch (param){
+          
+              case 'MCQ':
+                   return(
+                     <div>{MCQ()}</div>
+                  )
+                  break;
+    
+               case 'SCQ':
+                      return(
+                        <div>{SCQ()}</div>
+                     ) 
+                  break;
+    
+               case 'Date_Time':
+                       return(
+                      <div>{Date_Time()}</div>
+                       )
+                break;
+    
+               case 'Likart_Scale':
+                     return(
+                  <div>{Likart_Scale()}</div>
+                     )
+                    break;
+    
+               case 'BarCode':
+                 return(
+                 <div>{BarCode()}</div>
+                 )
+                    break;
+    
+               case 'Location':
+                    return(
+                      
+                      <div>{Location()}</div>
+                   )
+                      break;
+    
+               case 'Media':
+                      return(
+    
+                      <div>{Media()}</div>
+                      )
+                  break;
+              
+               case 'Number':
+                   return(
+    
+                    <div> {Number()}</div>
+                   ) 
+                 break;   
+               case 'Scale':
+                     return(
+                       <div>{Scale()}</div>
+                     )
+                     break;                           
+              }  
+       } 
+
+  
   componentDidMount(){
     dataGet('/surveyCategory/getAllSurveyCategory')
     .then(response=>{
@@ -66,9 +126,11 @@ class SurveyStepper extends Component {
   }
 
   handleChange(event) {
+    console.log(event);
     this.setState({
       [event.target.name]: event.target.value
     });
+    console.log(this.state.param);
   }
   handleResponse(singleResponseUser) {
     this.setState({ singleResponseUser });
@@ -94,7 +156,8 @@ class SurveyStepper extends Component {
       createdById:localStorage.getItem('userId'),
       singleResponseUser: this.state.singleResponseUser,
       approvalRequired:this.state.approvalRequired,
-      imagePath:this.state.imagePath
+      imagePath:this.state.imagePath,
+      param:this.state.param
     };
     console.log(survey)
     dataPost(`/survey/createSurvey`, survey).then(res => {
@@ -118,8 +181,7 @@ class SurveyStepper extends Component {
   })
   console.log(this.state.imagePath)
   }
-
-
+   
   getStepContent(params) {
     switch (params) {
       case 0:
@@ -155,7 +217,6 @@ class SurveyStepper extends Component {
               name="categoryId"
               onChange={this.handleChange}
               helperText="Please select a category"
-
             >
               {this.state.categories.map(category =>(
                <MenuItem key={category.id} value={category.id}>
@@ -260,7 +321,6 @@ class SurveyStepper extends Component {
 
       case 1:
         console.log(this.state.data)
-        if(this.state.data.length!==0){
         return (
           <div>
           <center>  
@@ -272,23 +332,11 @@ class SurveyStepper extends Component {
             <Button variant="login_btn" onClick={this.handleNext}>
               Next
             </Button>
-            {BarCode}
             </div>
             </center>
           </div>
-        )}
+        )
 
-        else{
-          return(
-          <div
-          style={{ position: "fixed", top: "50%", left: "50%" }}
-          className="d-flex flex-column align-items-center justify-content-center"
-        >
-          <Spinner animation="grow" variant="warning">
-            <span className="sr-only">Loading...</span>
-          </Spinner>
-        </div>
-          )}
 
       case 2:
         return (
@@ -301,9 +349,33 @@ class SurveyStepper extends Component {
   }
 
   render() {
-
     var steps = ["Enter Basic Details", "Add Questions", "Publish"];
     return (
+
+     <div style={{marginTop:"100px"}}>
+
+     <form align="center">
+     <input type="text" name="param"
+       placeholder="Enter Value Here"
+       onChange={this.handleChange}
+     />
+     <Button type="button" onClick={(event)=>{this.addDynamicComponent(this.state.param)}}>
+       Select
+     </Button>
+    </form>
+  {/* <form>
+          <input type="radio" name="param" value="MCQ" onChange={this.handleForm}/>
+          <label>MCQ</label>
+          <input type="radio" name="param" value="SCQ" onChange={this.handleForm}/>
+          <label>SCQ</label>
+          <input type="radio" name="param" value="BarCode" onChange={this.handleForm}/>
+          <label>BarCode</label>
+          <input type="radio" name="param" value="Number" onChange={this.handleForm}/>
+          <label>Number</label>
+
+  </form>*/}
+   {this.addDynamicComponent(this.state.param)}
+
       <div style={{ marginTop: "30px" }}>
         <Card
           style={{
@@ -313,8 +385,8 @@ class SurveyStepper extends Component {
           }}
         >
           <Card.Body className="p-4">
-            <Stepper activeStep={this.state.activeStep}>
-              {steps.map(step => {
+          <Stepper activeStep={this.state.activeStep}>
+          {steps.map(step => {
                 return (
                   <Step>
                     <StepLabel>{step}</StepLabel>
@@ -324,7 +396,9 @@ class SurveyStepper extends Component {
             </Stepper>
             {this.getStepContent(this.state.activeStep)}
           </Card.Body>
-        </Card>
+        </Card>         
+      </div>
+
       </div>
       // </div>
     );

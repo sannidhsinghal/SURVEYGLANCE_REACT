@@ -1,16 +1,14 @@
 import React from "react";
-import Form from 'react-bootstrap/Form'
-import axios from 'axios';
 import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
-import {Button} from "react-bootstrap"
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
+
     export function BarCode(){
         return(
-            <div className="loginParent">
-            <div className="col-sm-4">
+             <div className="loginParent">
+             <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
+             <h2>BarCode Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -28,12 +26,13 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
              </div>
              </div>
         )}
-    export function Date_Time(){
+       export function Date_Time(){
         return(
-            <div className="loginParent">
-            <div className="col-sm-4">
+             <div className="loginParent">
+             <div className="col-sm-4">
              <Card style={{ display:'flex', justifyContent:'center' }}>
              <Card.Body className="p-4">
+             <h2>Date_Time Form</h2>
              <form> 
              <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
              <br/>
@@ -54,64 +53,68 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
              </div>
              </div>
             )}
+
     export function Likart_Scale(){
         return(            
-     <div className="loginParent">
-     <div className="col-sm-4">
-     <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
-     <form> 
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option2" placeholder="option2" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="option3" placeholder="option3" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
-     </form> 
-     </Card.Body>
-     </Card>
-     </div>
-     </div>)}
+             <div className="loginParent">
+             <div className="col-sm-4">
+             <Card style={{ display:'flex', justifyContent:'center' }}>
+             <Card.Body className="p-4">
+             <h3>Likart_Scale Form</h3>
+             <form> 
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option1" placeholder="option1" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="option2" placeholder="option2" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="option3" placeholder="option3" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+             </form> 
+             </Card.Body>
+             </Card>
+             </div>
+             </div>)}
 
     export function Location(){
         return(           
-     <div className="loginParent">
-     <div className="col-sm-4">
-     <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
-     <form > 
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth  type="text" name="settings" placeholder="location_settings" />
-     <br/>
-     <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
-     </form> 
-     </Card.Body>
-     </Card>
-     </div>
-     </div>)}
+             <div className="loginParent">
+             <div className="col-sm-4">
+             <Card style={{ display:'flex', justifyContent:'center' }}>
+             <Card.Body className="p-4">
+             <h3>Location Form</h3>
+             <form > 
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="ref_tittle" placeholder="Enter reference for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="description" placeholder="Enter description for question" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="mandatory" placeholder="mandatory" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth  type="text" name="settings" placeholder="location_settings" />
+             <br/>
+             <TextField variant="standard" margin ="normal" fullWidth type="text" name="others" placeholder="Enter additional information" />
+             </form> 
+             </Card.Body>
+             </Card>
+             </div>
+             </div>)}
 
     export function MCQ(){
         return( 
-     <div className="loginParent">
-     <div className="col-sm-4">
-     <Card style={{ display:'flex', justifyContent:'center' }}>
-     <Card.Body className="p-4">
+            <div className="loginParent">
+          <div className="col-sm-4">
+          <Card style={{ display:'flex', justifyContent:'center' }}>
+          <Card.Body className="p-4">
+          <h3>MCQ Form</h3>
      <form> 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -152,7 +155,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h2>SCQ Form</h2>
+     <h3>SCQ Form</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -177,7 +180,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h2>Media</h2>
+     <h3>Media</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -202,7 +205,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h2>Number Form</h2>
+     <h3>Number Form</h3>
      <form > 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?"/>
      <br/>
@@ -229,7 +232,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      <div className="col-sm-4">
      <Card style={{ display:'flex', justifyContent:'center' }}>
      <Card.Body className="p-4">
-     <h2>Scale Form</h2>
+     <h3>Scale Form</h3>
      <form> 
      <TextField variant="standard" margin ="normal" fullWidth type="text" name="title" placeholder="Enter your question?" />
      <br/>
@@ -252,9 +255,7 @@ import PersonAddIcon from '@material-ui/icons/PersonAdd';
      </Card>
      </div>
      </div>)}
-    
-    
-    
+
     
     
 

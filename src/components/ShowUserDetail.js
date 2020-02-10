@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {dataGet} from './GetData'
+//import {dataGet} from './GetData'
 import axios from 'axios';
 
 export default class ShowUserDetail extends React.Component {

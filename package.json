@@ -4,14 +4,7 @@
   "private": true,
   "homepage": "http://sannidhsinghal.github.io/SURVEYGLANCE_REACT",
   "dependencies": {
-<<<<<<< HEAD
     "@material-ui/core": "^4.8.3",
-    "@material-ui/lab": "^4.0.0-alpha.40",
-=======
-    "@material-ui/core": "^4.9.0",
-    "@material-ui/lab": "^4.0.0-alpha.40",
-    "@material-ui/utils": "^4.7.1",
->>>>>>> e0842e8c953c0cded0486a6997085eb4d4492748
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
@@ -21,15 +14,12 @@
     "axios": "^0.19.1",
     "bootstrap": "^4.4.1",
     "bootstrap-css-only": "^4.3.1",
-    "chart.js": "^2.9.3",
-    "chartjs": "^0.3.24",
     "google-maps-react": "^2.0.2",
     "mdbreact": "^4.24.0",
     "mui-datatables": "^2.14.0",
     "react": "^16.12.0",
     "react-apexcharts": "^1.3.6",
     "react-bootstrap": "^1.0.0-beta.16",
-    "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.12.0",
     "react-file-picker": "0.0.6",
     "react-icons": "^3.8.0",
