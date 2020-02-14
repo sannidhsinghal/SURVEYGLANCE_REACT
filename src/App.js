@@ -23,7 +23,6 @@ import ShowUserDetail from "./components/ShowUserDetail";
 import ChartPage from "./components/ChartPage"
 import { Drawer,Divider,List,ListItemIcon} from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
-import MyForm from "./components/MyForm";
 //import DynamicForm from "./components/DynamicForm";
 
 class App extends Component {

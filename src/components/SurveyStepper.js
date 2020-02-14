@@ -1,18 +1,13 @@
 import React from "react";
-import { Stepper, Step, StepLabel, MenuItem } from "@material-ui/core";
+import { Stepper, Step, StepLabel, MenuItem,ExpansionPanel, ExpansionPanelSummary, Typography, Divider,ExpansionPanelDetails } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import {Spinner} from 'react-bootstrap'
 import { TextField } from "@material-ui/core";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button} from "react-bootstrap";
 import { dataPost, dataGet } from "./GetData";
 import Switch from "react-switch";
-
-import InputLabel from "@material-ui/core/InputLabel";
-//import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-
 import { uploadFile, uploadImage } from "./FileUpload";
-import AddQuestion from "./MyForm";
+import AddQuestion from "./AddQuestion";
 
 class SurveyStepper extends React.Component {
   constructor(props) {
@@ -268,11 +263,17 @@ class SurveyStepper extends React.Component {
 
       case 1:
         console.log(this.state.data);
+        // if(this.state.data.length!==0){
         return (
           <div>
             <center>
-              <p> Please upload the excel containing the questions</p>
-              <div style={{ marginTop: "200px" }}>
+            <ExpansionPanel fluid>
+              <ExpansionPanelSummary style={{backgroundColor:"#000000"}}>
+                 <Typography style={{color:"#ffffff"}}>
+                 Excel Upload
+                 </Typography>
+                 </ExpansionPanelSummary>
+              <ExpansionPanelDetails>   
                 <TextField type="file" onChange={this.handleFile} />
                 <Button
                   variant="login_btn"
@@ -286,17 +287,38 @@ class SurveyStepper extends React.Component {
                 >
                   Upload
                 </Button>
-                <Button variant="login_btn" onClick={this.handleBack}>
+              </ExpansionPanelDetails>
+              </ExpansionPanel>
+              </center>
+              <Divider/>
+              <ExpansionPanel fluid>
+              <ExpansionPanelSummary style={{backgroundColor:"#000000"}}><Typography style={{color:"white"}}>Add Question Manually</Typography></ExpansionPanelSummary>  
+              <ExpansionPanelDetails>
+              <AddQuestion />
+              </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <center>
+              <Button variant="login_btn" onClick={this.handleBack}>
                   Back
                 </Button>
                 <Button variant="login_btn" onClick={this.handleNext}>
                   Next
                 </Button>
-              </div>
-              <AddQuestion />
-            </center>
+                </center>
           </div>
-        );
+        )
+
+        // else{
+        //   return(
+        //   <div
+        //   style={{ position: "fixed", top: "50%", left: "50%" }}
+        //   className="d-flex flex-column align-items-center justify-content-center"
+        // >
+        //   <Spinner animation="grow" variant="warning">
+        //     <span className="sr-only">Loading...</span>
+        //   </Spinner>
+        // </div>
+        //   )}
 
       case 2:
         return (
