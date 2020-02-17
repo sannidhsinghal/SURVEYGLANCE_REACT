@@ -79,7 +79,7 @@ export class ResponseTable extends Component{
       const data =[]
 
 
-     this.state.responses.map(res=>{
+     this.state.responses.map(res=>{  
       const object=[]
       var id={
         responseId:res.id
