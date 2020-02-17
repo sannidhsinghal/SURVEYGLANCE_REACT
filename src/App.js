@@ -23,7 +23,8 @@ import SurveyPage from "./components/SurveyPage";
 import ChartPage from "./components/ChartPage";
 import {Drawer,Divider,List,ListItemIcon} from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
-import dynamicSurvey from "./components/DynamicForm/InputText";
+import Form from "./components/DynamicForm/Form";
+import ErrorPage from "./components/404Page.js";
 
 class App extends Component {
   constructor() {
@@ -145,7 +146,10 @@ class App extends Component {
           <Route exact path="/showuserdetail" component={ShowUserDetail}></Route>
           <Route exact path="/chartpage" component={ChartPage}/>
           <Route exact path="/survey" component={SurveyStepper}/>
-          <Route exact path="/dynamic" component={dynamicSurvey}/>
+          <Route exact path="/Form" component={Form}/>
+          {/* <Route exact path="*" component={ErrorPage}/> */}
+
+
           </Router>
       </div>
     );
