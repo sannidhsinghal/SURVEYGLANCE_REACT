@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route,} from "react-router-dom";
 import "./css/navbar.css";
 import "./App.css";
 import { Navbar, Nav } from "react-bootstrap";
@@ -25,6 +25,8 @@ import {Drawer,Divider,List,ListItemIcon} from "@material-ui/core";
 import SurveyStepper from "./components/SurveyStepper";
 import Form from "./components/DynamicForm/Form";
 import ErrorPage from "./components/404Page.js";
+//import MyForm from "./components/MyForm";
+//import DynamicForm from "./components/DynamicForm";
 
 class App extends Component {
   constructor() {

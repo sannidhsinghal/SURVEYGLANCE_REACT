@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Form from 'react-bootstrap/Form'
-import axios from 'axios';
+//import Form from 'react-bootstrap/Form'
+//import axios from 'axios';
 import { dataPost } from "./GetData";
 import {TextField} from "@material-ui/core"
 import {Card} from "react-bootstrap"
